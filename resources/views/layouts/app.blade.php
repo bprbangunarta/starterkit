@@ -1,45 +1,39 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    class="light-style layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr" data-theme="theme-default"
+    data-assets-path="assets/" data-template="vertical-menu-template-no-customizer-starter">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @include('layouts.header')
+</head>
 
-        <!-- Styles -->
-        @livewireStyles
-    </head>
-    <body class="font-sans antialiased">
-        <x-banner />
+<body>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+            @include('layouts.layout-menu')
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+            <div class="layout-page">
+                @include('layouts.navbar')
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                @yield('content')
+            </div>
         </div>
 
-        @stack('modals')
+        <div class="layout-overlay layout-menu-toggle"></div>
+        <div class="drag-target"></div>
+    </div>
 
-        @livewireScripts
-    </body>
+    @include('layouts.footer')
+    @push('script')
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+    @endpush
+</body>
+
 </html>
