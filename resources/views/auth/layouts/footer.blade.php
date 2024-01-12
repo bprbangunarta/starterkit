@@ -13,4 +13,4 @@
 <script src="{{ asset('assets/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js') }}"></script>
 
 <script src="{{ asset('assets/js/main.js') }}"></script>
-<script src="{{ asset('assets/js/pages-auth.js') }}"></script>
+@stack('script')

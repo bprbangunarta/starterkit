@@ -62,10 +62,11 @@
                                 </div>
                             @enderror
                         </div>
+
                         <div
                             class="mb-3 form-password-toggle fv-plugins-icon-container @error('password') fv-plugins-bootstrap5-row-invalid @enderror">
                             <div class="d-flex justify-content-between">
-                                <label class="form-label" for="password">Password</label>
+                                <label class="form-label">Password</label>
                                 <a href="{{ route('password.request') }}">
                                     <small>Forgot Password?</small>
                                 </a>
@@ -80,14 +81,15 @@
                             @error('password')
                                 <div
                                     class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                    <div data-field="email-username" data-validator="notEmpty">{{ $message }}</div>
+                                    <div data-field="password" data-validator="notEmpty">{{ $message }}</div>
                                 </div>
                             @enderror
                         </div>
+
                         <div class="mb-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="remember-me">
-                                <label class="form-check-label" for="remember-me"> Remember Me </label>
+                                <label class="form-check-label"> Remember Me </label>
                             </div>
                         </div>
                         <button class="btn btn-primary d-grid w-100 waves-effect waves-light">Sign in</button>
@@ -107,3 +109,7 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script src="{{ asset('assets/js/pages-auth.js') }}"></script>
+@endpush
