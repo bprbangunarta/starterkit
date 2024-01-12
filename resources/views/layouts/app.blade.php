@@ -31,9 +31,6 @@
     </div>
 
     @include('layouts.footer')
-    @push('script')
-        <script src="{{ asset('assets/js/main.js') }}"></script>
-    @endpush
 </body>
 
 </html>
