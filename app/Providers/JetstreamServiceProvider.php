@@ -5,6 +5,11 @@ namespace App\Providers;
 use App\Actions\Jetstream\DeleteUser;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Fortify\Fortify;
+use Illuminate\Validation\ValidationException;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -22,9 +27,23 @@ class JetstreamServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configurePermissions();
-
         Jetstream::deleteUsersUsing(DeleteUser::class);
+
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('email', $request->auth)
+                ->orWhere('username', $request->auth)
+                ->first();
+
+            if ($user && $user->is_active == 1 && Hash::check($request->password, $user->password)) {
+                return $user;
+            } elseif ($user && $user->is_active != 1) {
+                throw ValidationException::withMessages([
+                    'auth' => ['Sorry, your account has been disabled.'],
+                ]);
+            }
+        });
     }
+
 
     /**
      * Configure the permissions that are available within the application.
