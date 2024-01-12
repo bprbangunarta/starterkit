@@ -27,15 +27,15 @@
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
-        <!-- Page -->
-        <li class="menu-item active">
-            <a href="index.html" class="menu-link">
+        <li class="menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
+            <a href="{{ route('dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div data-i18n="Page 1">Page 1</div>
+                <div>Dashboard</div>
             </a>
         </li>
+
         <li class="menu-item">
-            <a href="page-2.html" class="menu-link">
+            <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-app-window"></i>
                 <div data-i18n="Page 2">Page 2</div>
             </a>
