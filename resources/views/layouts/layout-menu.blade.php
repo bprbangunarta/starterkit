@@ -35,10 +35,76 @@
         </li>
 
         <li class="menu-item">
-            <a href="#" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-app-window"></i>
-                <div data-i18n="Page 2">Page 2</div>
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-user"></i>
+                <div>User Profile</div>
             </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div>Account</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div>Security</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Administrator</span>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+            <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-users"></i>
+                <div>Users Management</div>
+            </a>
+        </li>
+
+        <li class="menu-item active open">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-settings"></i>
+                <div>Roles &amp; Permissions</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div>Roles</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div>Permission</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div>Assign Permission</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-list"></i>
+                <div>Menu Management</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="app-access-roles.html" class="menu-link">
+                        <div>List Menu</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="app-access-permission.html" class="menu-link">
+                        <div>List Submenu</div>
+                    </a>
+                </li>
+            </ul>
         </li>
     </ul>
 </aside>
