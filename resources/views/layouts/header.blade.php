@@ -1,5 +1,3 @@
-<title>@yield('title')</title>
-
 <x-layouts.header></x-layouts.header>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
