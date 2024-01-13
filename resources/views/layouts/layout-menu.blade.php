@@ -95,5 +95,12 @@
                 </li>
             </ul>
         </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+            <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-world"></i>
+                <div>Site Configuration</div>
+            </a>
+        </li>
     </ul>
 </aside>
