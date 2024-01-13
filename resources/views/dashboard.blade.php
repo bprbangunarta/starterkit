@@ -11,9 +11,10 @@
                     <div class="d-flex align-items-end row">
                         <div class="col-7">
                             <div class="card-body text-nowrap">
-                                <h5 class="card-title mb-0">Congratulations John! 🎉</h5>
-                                <p class="mb-4">Best seller of the month</p>
-                                <h4 class="text-primary mb-1">$48.9k</h4>
+                                <h5 class="card-title mb-0 text-capitalize">Congratulations {{ Auth::user()->username }}! 🎉
+                                </h5>
+                                <p class="mb-4">Realization this month</p>
+                                <h4 class="text-primary mb-1">Rp. 3.876.987.000</h4>
                             </div>
                         </div>
                         <div class="col-5 text-center text-sm-left">
@@ -88,9 +89,7 @@
             </div>
             <!--/ Statistics -->
 
-
-
-
+            <!-- User Table -->
             <div class="col-xl-12 mb-4 col-lg-12 col-12">
                 <div class="card h-100">
                     <div class="card-header">
@@ -104,10 +103,10 @@
                                     <tr class="text-danger">
                                         <td>User</td>
                                         <td>Role</td>
-                                        <td class="text-center">Username</td>
-                                        <td class="text-center">Region</td>
-                                        <td class="text-center">Status</td>
-                                        <td class="text-center" style="width:100px;">Action</td>
+                                        <td style="width:10%;">Username</td>
+                                        <td style="width:10%;">Region</td>
+                                        <td style="width:10%;">Status</td>
+                                        <td class="text-center" style="width:10%;">Action</td>
                                     </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
@@ -140,28 +139,28 @@
                                             </span>
                                         </td>
 
-                                        <td class="text-center">zulfame</td>
-                                        <td class="text-center">Pamanukan</td>
+                                        <td>zulfame</td>
+                                        <td>Pamanukan</td>
 
-                                        <td class="text-center">
-                                            <span class="badge bg-label-success" text-capitalized="">Active</span>
+                                        <td>
+                                            <span class="badge bg-label-success">Active</span>
                                         </td>
 
                                         <td class="text-center">
                                             <a href="#">
-                                                <span class="badge badge-center bg-label-primary w-px-30 h-px-30 me-2">
+                                                <span class="badge badge-center bg-label-primary w-px-30 h-px-30">
                                                     <i class="ti ti-eye ti-sm"></i>
                                                 </span>
                                             </a>
 
                                             <a href="#">
-                                                <span class="badge badge-center bg-label-warning w-px-30 h-px-30 me-2">
+                                                <span class="badge badge-center bg-label-warning w-px-30 h-px-30">
                                                     <i class="ti ti-edit ti-sm"></i>
                                                 </span>
                                             </a>
 
                                             <a href="#">
-                                                <span class="badge badge-center bg-label-danger w-px-30 h-px-30 me-2">
+                                                <span class="badge badge-center bg-label-danger w-px-30 h-px-30">
                                                     <i class="ti ti-trash ti-sm"></i>
                                                 </span>
                                             </a>
@@ -197,28 +196,28 @@
                                             </span>
                                         </td>
 
-                                        <td class="text-center">mutia</td>
-                                        <td class="text-center">Pamanukan</td>
+                                        <td>mutia</td>
+                                        <td>Pamanukan</td>
 
-                                        <td class="text-center">
-                                            <span class="badge bg-label-success" text-capitalized="">Active</span>
+                                        <td>
+                                            <span class="badge bg-label-warning">Pendding</span>
                                         </td>
 
                                         <td class="text-center">
                                             <a href="#">
-                                                <span class="badge badge-center bg-label-primary w-px-30 h-px-30 me-2">
+                                                <span class="badge badge-center bg-label-primary w-px-30 h-px-30">
                                                     <i class="ti ti-eye ti-sm"></i>
                                                 </span>
                                             </a>
 
                                             <a href="#">
-                                                <span class="badge badge-center bg-label-warning w-px-30 h-px-30 me-2">
+                                                <span class="badge badge-center bg-label-warning w-px-30 h-px-30">
                                                     <i class="ti ti-edit ti-sm"></i>
                                                 </span>
                                             </a>
 
                                             <a href="#">
-                                                <span class="badge badge-center bg-label-danger w-px-30 h-px-30 me-2">
+                                                <span class="badge badge-center bg-label-danger w-px-30 h-px-30">
                                                     <i class="ti ti-trash ti-sm"></i>
                                                 </span>
                                             </a>
@@ -228,7 +227,7 @@
                             </table>
                         </div>
 
-                        <div class="row">
+                        <div class="row" style="margin-bottom: -30px;">
                             <div class="col-sm-6 col-md-6 hidden-xs">
                                 <div>
                                     <button class="dt-button add-new btn btn-sm btn-primary waves-effect waves-light"
@@ -270,6 +269,7 @@
                     </div>
                 </div>
             </div>
+            <!--/ User Table -->
 
         </div>
     </div>
