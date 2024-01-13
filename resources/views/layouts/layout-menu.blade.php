@@ -1,6 +1,11 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <x-layouts.sidebar></x-layouts.sidebar>
+        <a href="/" class="app-brand-link">
+            <span class="app-brand-logo demo">
+                <x-app-logo></x-app-logo>
+            </span>
+            <span class="app-brand-text demo menu-text fw-bold"><x-app-name></x-app-name></span>
+        </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
             <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i>
