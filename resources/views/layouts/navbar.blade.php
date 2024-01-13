@@ -8,6 +8,33 @@
 
     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
         <ul class="navbar-nav flex-row align-items-center ms-auto">
+            <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="ti ti-calendar rounded-circle ti-md"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a class="dropdown-item active" href="javascript:void(0);" data-language="en"
+                            data-text-direction="ltr">
+                            <span class="align-middle">Daily</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="javascript:void(0);" data-language="fr"
+                            data-text-direction="ltr">
+                            <span class="align-middle">Weekly</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="javascript:void(0);" data-language="ar"
+                            data-text-direction="rtl">
+                            <span class="align-middle">Monthly</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <!-- User -->
             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -45,16 +72,6 @@
                     </li>
                     <li>
                         <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a class="dropdown-item" href="#"
-                                onclick="event.preventDefault(); this.closest('form').submit();">
-                                <i class="ti ti-logout me-2 ti-sm"></i>
-                                <span class="align-middle">Log Out</span>
-                            </a>
-                        </form>
                     </li>
 
                     <li>
