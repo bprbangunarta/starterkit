@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'meta_image'        => '',
             'favicon'           => '',
             'logo'              => '',
-            'footer_left'       => '© 2024 , made with ❤️ by Pixinvent',
+            'footer_left'       => 'Made with ❤️ by zulfame',
             'footer_right'      => 'Documentation',
         ]);
     }

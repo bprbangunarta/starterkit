@@ -1,6 +1,6 @@
 <title>@yield('title')</title>
 
-<meta name="description" content="" />
+<x-layouts.header></x-layouts.header>
 <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
