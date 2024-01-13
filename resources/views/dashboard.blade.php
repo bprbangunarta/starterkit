@@ -88,6 +88,68 @@
             </div>
             <!--/ Statistics -->
 
+            <div class="card mb-4">
+                <div class="table-responsive mb-3">
+                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                        <div class="card-header py-sm-0">
+                            <div class="head-label text-center">
+                                <h5 class="card-title mb-0 text-nowrap">Course you are taking</h5>
+                            </div>
+                            <div id="DataTables_Table_0_filter" class="dataTables_filter"><label><input type="search"
+                                        class="form-control" placeholder="Course Name"
+                                        aria-controls="DataTables_Table_0"></label></div>
+                        </div>
+                        <table class="table datatables-academy-course dataTable no-footer dtr-column"
+                            id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+                            <thead class="border-top">
+                                <tr>
+                                    <th class="control sorting_disabled dtr-hidden" rowspan="1" colspan="1"
+                                        style="width: 47.5156px; display: none;" aria-label=""></th>
+                                    <th class="sorting_disabled dt-checkboxes-cell dt-checkboxes-select-all" rowspan="1"
+                                        colspan="1" style="width: 47.5156px;" data-col="1" aria-label=""><input
+                                            type="checkbox" class="form-check-input"></th>
+                                    <th class="sorting sorting_desc" tabindex="0" aria-controls="DataTables_Table_0"
+                                        rowspan="1" colspan="1" style="width: 287.062px;" aria-sort="descending"
+                                        aria-label="Course Name: activate to sort column ascending">Course Name</th>
+                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
+                                        colspan="1" style="width: 131.906px;"
+                                        aria-label="Time: activate to sort column ascending">Time</th>
+                                    <th class="w-25 sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                        rowspan="1" colspan="1" style="width: 297px;"
+                                        aria-label="Progress: activate to sort column ascending">Progress</th>
+                                    <th class="w-25 sorting" tabindex="0" aria-controls="DataTables_Table_0"
+                                        rowspan="1" colspan="1" style="width: 297px;"
+                                        aria-label="Status: activate to sort column ascending">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="odd">
+                                    <td valign="top" colspan="5" class="dataTables_empty">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row mx-4">
+                            <div class="col-sm-6 col-12 text-center text-xl-start pb-2 pb-xl-0 px-0">
+                                <div class="dataTables_info" id="DataTables_Table_0_info" role="status"
+                                    aria-live="polite">Showing 0 to 0 of 0 entries</div>
+                            </div>
+                            <div class="col-sm-6 col-12 d-flex justify-content-center justify-content-xl-end px-0">
+                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_button page-item previous disabled"
+                                            id="DataTables_Table_0_previous"><a aria-controls="DataTables_Table_0"
+                                                aria-disabled="true" role="link" data-dt-idx="previous"
+                                                tabindex="0" class="page-link">Previous</a></li>
+                                        <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
+                                            <a aria-controls="DataTables_Table_0" aria-disabled="true" role="link"
+                                                data-dt-idx="next" tabindex="0" class="page-link">Next</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

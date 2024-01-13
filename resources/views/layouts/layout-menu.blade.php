@@ -23,18 +23,18 @@
             </a>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-user"></i>
                 <div>User Profile</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
                     <a href="#" class="menu-link">
                         <div>Account</div>
                     </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
                     <a href="#" class="menu-link">
                         <div>Security</div>
                     </a>
@@ -53,43 +53,43 @@
             </a>
         </li>
 
-        <li class="menu-item active open">
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-settings"></i>
                 <div>Roles &amp; Permissions</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
                         <div>Roles</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
                         <div>Permission</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
                         <div>Assign Permission</div>
                     </a>
                 </li>
             </ul>
         </li>
 
-        <li class="menu-item">
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-list"></i>
                 <div>Menu Management</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="app-access-roles.html" class="menu-link">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
                         <div>List Menu</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="app-access-permission.html" class="menu-link">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
                         <div>List Submenu</div>
                     </a>
                 </li>
