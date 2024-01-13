@@ -56,6 +56,13 @@
                             </a>
                         </form>
                     </li>
+
+                    <li>
+                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalLogout">
+                            <i class="ti ti-logout me-2 ti-sm"></i>
+                            <span class="align-middle">Log Out</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <!--/ User -->

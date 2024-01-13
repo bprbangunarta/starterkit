@@ -11,5 +11,10 @@
             <a href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation//layouts.html" target="_blank"
                 class="fw-medium">Layout docs</a>.
         </p>
+
+        <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
+            data-bs-target="#modalLogout">
+            Launch modal
+        </button>
     </div>
 @endsection

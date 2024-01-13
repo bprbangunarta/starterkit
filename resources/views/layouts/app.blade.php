@@ -47,6 +47,32 @@
         <div class="drag-target"></div>
     </div>
 
+    {{-- Modal --}}
+    <div class="modal fade" id="modalLogout" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLogoutTitle">Confirm Logout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <div class="modal-body">
+                        Are you sure you want to leave? Saving your changes now will ensure you don't lose your work
+                        data.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-label-secondary waves-effect" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light"
+                            onclick="event.preventDefault(); this.closest('form').submit();">Log Out</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     @include('layouts.footer')
 </body>
 
