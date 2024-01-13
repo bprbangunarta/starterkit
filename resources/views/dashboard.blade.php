@@ -88,68 +88,189 @@
             </div>
             <!--/ Statistics -->
 
-            <div class="card mb-4">
-                <div class="table-responsive mb-3">
-                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
-                        <div class="card-header py-sm-0">
-                            <div class="head-label text-center">
-                                <h5 class="card-title mb-0 text-nowrap">Course you are taking</h5>
-                            </div>
-                            <div id="DataTables_Table_0_filter" class="dataTables_filter"><label><input type="search"
-                                        class="form-control" placeholder="Course Name"
-                                        aria-controls="DataTables_Table_0"></label></div>
+
+
+
+            <div class="col-xl-12 mb-4 col-lg-12 col-12">
+                <div class="card h-100">
+                    <div class="card-header">
+                        header
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive text-nowrap mb-3" style="border-bottom: 1px solid #DBDADE;">
+                            <table class="table">
+                                <thead class="fw-bold">
+                                    <tr class="text-danger">
+                                        <td>User</td>
+                                        <td>Role</td>
+                                        <td class="text-center">Username</td>
+                                        <td class="text-center">Region</td>
+                                        <td class="text-center">Status</td>
+                                        <td class="text-center" style="width:100px;">Action</td>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-border-bottom-0">
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex justify-content-start align-items-center user-name">
+                                                <div class="avatar-wrapper">
+                                                    <div class="avatar me-3">
+                                                        <img src="{{ asset('assets/img/avatars/6.png') }}" alt="Avatar"
+                                                            class="rounded">
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex flex-column">
+                                                    <a href="#" class="text-body text-truncate">
+                                                        <span class="fw-medium">Zulfadli Rizal</span>
+                                                    </a>
+                                                    <small class="text-muted">zulfadlirizal@gmail.com</small>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <span class="text-truncate d-flex align-items-center">
+                                                <span
+                                                    class="badge badge-center rounded-pill bg-label-success w-px-30 h-px-30 me-2">
+                                                    <i class="ti ti-circle-check ti-sm"></i>
+                                                </span>
+                                                Author
+                                            </span>
+                                        </td>
+
+                                        <td class="text-center">zulfame</td>
+                                        <td class="text-center">Pamanukan</td>
+
+                                        <td class="text-center">
+                                            <span class="badge bg-label-success" text-capitalized="">Active</span>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a href="#">
+                                                <span class="badge badge-center bg-label-primary w-px-30 h-px-30 me-2">
+                                                    <i class="ti ti-eye ti-sm"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="#">
+                                                <span class="badge badge-center bg-label-warning w-px-30 h-px-30 me-2">
+                                                    <i class="ti ti-edit ti-sm"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="#">
+                                                <span class="badge badge-center bg-label-danger w-px-30 h-px-30 me-2">
+                                                    <i class="ti ti-trash ti-sm"></i>
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex justify-content-start align-items-center user-name">
+                                                <div class="avatar-wrapper">
+                                                    <div class="avatar me-3">
+                                                        <img src="{{ asset('assets/img/avatars/6.png') }}" alt="Avatar"
+                                                            class="rounded">
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex flex-column">
+                                                    <a href="#" class="text-body text-truncate">
+                                                        <span class="fw-medium">Mutia Wahida Rahmi</span>
+                                                    </a>
+                                                    <small class="text-muted">mutiawr27@gmail.com</small>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <span class="text-truncate d-flex align-items-center">
+                                                <span
+                                                    class="badge badge-center rounded-pill bg-label-secondary w-px-30 h-px-30 me-2">
+                                                    <i class="ti ti-device-laptop ti-sm"></i>
+                                                </span>
+                                                Administrator
+                                            </span>
+                                        </td>
+
+                                        <td class="text-center">mutia</td>
+                                        <td class="text-center">Pamanukan</td>
+
+                                        <td class="text-center">
+                                            <span class="badge bg-label-success" text-capitalized="">Active</span>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <a href="#">
+                                                <span class="badge badge-center bg-label-primary w-px-30 h-px-30 me-2">
+                                                    <i class="ti ti-eye ti-sm"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="#">
+                                                <span class="badge badge-center bg-label-warning w-px-30 h-px-30 me-2">
+                                                    <i class="ti ti-edit ti-sm"></i>
+                                                </span>
+                                            </a>
+
+                                            <a href="#">
+                                                <span class="badge badge-center bg-label-danger w-px-30 h-px-30 me-2">
+                                                    <i class="ti ti-trash ti-sm"></i>
+                                                </span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <table class="table datatables-academy-course dataTable no-footer dtr-column"
-                            id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
-                            <thead class="border-top">
-                                <tr>
-                                    <th class="control sorting_disabled dtr-hidden" rowspan="1" colspan="1"
-                                        style="width: 47.5156px; display: none;" aria-label=""></th>
-                                    <th class="sorting_disabled dt-checkboxes-cell dt-checkboxes-select-all" rowspan="1"
-                                        colspan="1" style="width: 47.5156px;" data-col="1" aria-label=""><input
-                                            type="checkbox" class="form-check-input"></th>
-                                    <th class="sorting sorting_desc" tabindex="0" aria-controls="DataTables_Table_0"
-                                        rowspan="1" colspan="1" style="width: 287.062px;" aria-sort="descending"
-                                        aria-label="Course Name: activate to sort column ascending">Course Name</th>
-                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1"
-                                        colspan="1" style="width: 131.906px;"
-                                        aria-label="Time: activate to sort column ascending">Time</th>
-                                    <th class="w-25 sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                        rowspan="1" colspan="1" style="width: 297px;"
-                                        aria-label="Progress: activate to sort column ascending">Progress</th>
-                                    <th class="w-25 sorting" tabindex="0" aria-controls="DataTables_Table_0"
-                                        rowspan="1" colspan="1" style="width: 297px;"
-                                        aria-label="Status: activate to sort column ascending">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="odd">
-                                    <td valign="top" colspan="5" class="dataTables_empty">Loading...</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="row mx-4">
-                            <div class="col-sm-6 col-12 text-center text-xl-start pb-2 pb-xl-0 px-0">
-                                <div class="dataTables_info" id="DataTables_Table_0_info" role="status"
-                                    aria-live="polite">Showing 0 to 0 of 0 entries</div>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 hidden-xs">
+                                <div>
+                                    <button class="dt-button add-new btn btn-sm btn-primary waves-effect waves-light"
+                                        type="button">
+                                        Add User
+                                    </button>
+
+                                    <button type="button" class="btn btn-sm btn-label-secondary">
+                                        Showing 1 to 10 of 50 entries
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-sm-6 col-12 d-flex justify-content-center justify-content-xl-end px-0">
-                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                                    <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled"
-                                            id="DataTables_Table_0_previous"><a aria-controls="DataTables_Table_0"
-                                                aria-disabled="true" role="link" data-dt-idx="previous"
-                                                tabindex="0" class="page-link">Previous</a></li>
-                                        <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next">
-                                            <a aria-controls="DataTables_Table_0" aria-disabled="true" role="link"
-                                                data-dt-idx="next" tabindex="0" class="page-link">Next</a></li>
-                                    </ul>
+
+                            <div class="col-sm-6 col-md-6">
+                                <div>
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination pagination-sm justify-content-end">
+                                            <li class="page-item prev">
+                                                <a class="page-link waves-effect" href="javascript:void(0);">
+                                                    <i class="ti ti-chevrons-left ti-xs"></i>
+                                                </a>
+                                            </li>
+                                            <li class="page-item active">
+                                                <a class="page-link waves-effect" href="javascript:void(0);">1</a>
+                                            </li>
+                                            <li class="page-item">
+                                                <a class="page-link waves-effect" href="javascript:void(0);">2</a>
+                                            </li>
+                                            <li class="page-item next">
+                                                <a class="page-link waves-effect" href="javascript:void(0);">
+                                                    <i class="ti ti-chevrons-right ti-xs"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 @endsection

@@ -29,3 +29,11 @@
 <!-- Helpers -->
 <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
 <script src="{{ asset('assets/js/config.js') }}"></script>
+
+<style>
+    @media (max-width: 767px) {
+        .hidden-xs {
+            display: none !important;
+        }
+    }
+</style>
