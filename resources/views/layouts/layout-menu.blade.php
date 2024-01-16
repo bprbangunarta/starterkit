@@ -48,6 +48,13 @@
 
         <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
             <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-world"></i>
+                <div>Site Configuration</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+            <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-users"></i>
                 <div>Users Management</div>
             </a>
@@ -94,13 +101,6 @@
                     </a>
                 </li>
             </ul>
-        </li>
-
-        <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
-            <a href="#" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-world"></i>
-                <div>Site Configuration</div>
-            </a>
         </li>
     </ul>
 </aside>
