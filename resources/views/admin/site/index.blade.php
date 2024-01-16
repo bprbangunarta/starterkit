@@ -15,36 +15,81 @@
 
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label class="form-label" for="multicol-username">App Name</label>
-                                <input type="text" class="form-control" name="app_name" value="{{ $site->app_name }}"
-                                    placeholder="Starterkit">
+                                <label class="form-label">App Name</label>
+                                <input type="text" class="form-control @error('app_name') is-invalid @enderror"
+                                    name="app_name" value="{{ $site->app_name }}" placeholder="Starterkit">
+
+                                @error('app_name')
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                        <div data-field="email-username" data-validator="notEmpty">{{ $message }}</div>
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label" for="multicol-username">Meta Image (1280x720)</label>
-                                <input type="file" class="form-control" name="meta_image">
+                                <label class="form-label">Meta Image (1280x720)</label>
+                                <input type="file" class="form-control @error('meta_image') is-invalid @enderror"
+                                    name="meta_image">
+
+                                @error('meta_image')
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                        <div data-field="email-username" data-validator="notEmpty">{{ $message }}</div>
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label" for="multicol-username">Meta Description</label>
-                                <input type="text" class="form-control" name="meta_description"
-                                    value="{{ $site->meta_description }}" placeholder="Starterkit">
+                                <label class="form-label">Meta Description</label>
+                                <input type="text" class="form-control @error('meta_description') is-invalid @enderror"
+                                    name="meta_description" value="{{ $site->meta_description }}" placeholder="Starterkit">
+
+                                @error('meta_description')
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                        <div data-field="email-username" data-validator="notEmpty">{{ $message }}</div>
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label" for="multicol-username">Site Logo (300x150)</label>
-                                <input type="file" class="form-control" name="logo">
+                                <label class="form-label">Site Logo (300x150)</label>
+                                <input type="file" class="form-control @error('logo') is-invalid @enderror"
+                                    name="logo">
+
+                                @error('logo')
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                        <div data-field="email-username" data-validator="notEmpty">{{ $message }}</div>
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label" for="multicol-username">Meta Keyword</label>
-                                <input type="text" class="form-control" name="meta_keyword"
-                                    value="{{ $site->meta_keyword }}" placeholder="starterkit, laravel">
+                                <label class="form-label">Meta Keyword</label>
+                                <input type="text" class="form-control @error('meta_keyword') is-invalid @enderror"
+                                    name="meta_keyword" value="{{ $site->meta_keyword }}" placeholder="starterkit, laravel">
+
+                                @error('meta_keyword')
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                        <div data-field="email-username" data-validator="notEmpty">{{ $message }}</div>
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label" for="multicol-username">Favicon (100x100)</label>
-                                <input type="file" class="form-control" name="favicon">
+                                <label class="form-label">Favicon (100x100)</label>
+                                <input type="file" class="form-control @error('favicon') is-invalid @enderror"
+                                    name="favicon">
+
+                                @error('favicon')
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                        <div data-field="email-username" data-validator="notEmpty">{{ $message }}</div>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <hr class="my-4 mx-n4">
@@ -52,15 +97,29 @@
                         <h6>Footer Text</h6>
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label class="form-label" for="multicol-username">Text Left</label>
-                                <input type="text" class="form-control" name="footer_left"
-                                    value="{{ $site->footer_left }}" placeholder="Starterkit">
+                                <label class="form-label">Text Left</label>
+                                <input type="text" class="form-control @error('footer_left') is-invalid @enderror"
+                                    name="footer_left" value="{{ $site->footer_left }}" placeholder="Starterkit">
+
+                                @error('footer_left')
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                        <div data-field="email-username" data-validator="notEmpty">{{ $message }}</div>
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label" for="multicol-username">Footer Right</label>
-                                <input type="text" class="form-control" name="footer_right"
-                                    value="{{ $site->footer_right }}" placeholder="Starterkit">
+                                <label class="form-label">Footer Right</label>
+                                <input type="text" class="form-control @error('footer_right') is-invalid @enderror"
+                                    name="footer_right" value="{{ $site->footer_right }}" placeholder="Starterkit">
+
+                                @error('footer_right')
+                                    <div
+                                        class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                        <div data-field="email-username" data-validator="notEmpty">{{ $message }}</div>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 

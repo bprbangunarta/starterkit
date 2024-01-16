@@ -38,8 +38,8 @@
                             class="mb-3 fv-plugins-icon-container @error('auth') fv-plugins-bootstrap5-row-invalid @enderror">
                             <label class="form-label">Email or Username</label>
                             <input type="text" class="form-control @error('auth') is-invalid @enderror" id="auth"
-                                name="auth" placeholder="Enter your email or username" autofocus=""
-                                value="{{ old('auth') }}" required>
+                                name="auth" placeholder="Enter your email or username" value="{{ old('auth') }}"
+                                required>
 
                             @error('auth')
                                 <div
