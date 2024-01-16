@@ -45,7 +45,7 @@
                             @error('name')
                                 <div
                                     class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                    <div data-field="name" data-validator="notEmpty">{{ $message }}</div>
+                                    <div data-field="name">{{ $message }}</div>
                                 </div>
                             @enderror
                         </div>
@@ -60,7 +60,7 @@
                             @error('username')
                                 <div
                                     class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                    <div data-field="username" data-validator="notEmpty">{{ $message }}</div>
+                                    <div data-field="username">{{ $message }}</div>
                                 </div>
                             @enderror
                         </div>
@@ -74,7 +74,25 @@
                             @error('email')
                                 <div
                                     class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                    <div data-field="email" data-validator="notEmpty">{{ $message }}</div>
+                                    <div data-field="email">{{ $message }}</div>
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div
+                            class="mb-3 fv-plugins-icon-container @error('username') fv-plugins-bootstrap5-row-invalid @enderror">
+                            <label class="form-label">WhatsApp</label>
+
+                            <div class="input-group">
+                                <span class="input-group-text">62</span>
+                                <input type="number" class="form-control" name="phone" id="phone"
+                                    value="{{ old('phone') }}" placeholder="823200999XX">
+                            </div>
+
+                            @error('phone')
+                                <div
+                                    class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
+                                    <div data-field="phone">{{ $message }}</div>
                                 </div>
                             @enderror
                         </div>
@@ -94,7 +112,7 @@
                             @error('password')
                                 <div
                                     class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                    <div data-field="password" data-validator="notEmpty">{{ $message }}</div>
+                                    <div data-field="password">{{ $message }}</div>
                                 </div>
                             @enderror
                         </div>

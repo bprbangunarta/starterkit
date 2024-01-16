@@ -29,12 +29,12 @@
                 <div>User Profile</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
                     <a href="#" class="menu-link">
                         <div>Account</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
                     <a href="#" class="menu-link">
                         <div>Security</div>
                     </a>
