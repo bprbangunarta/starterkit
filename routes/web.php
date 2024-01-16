@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\SiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::prefix('admin')->group(function () {
+        Route::controller(SiteController::class)->group(function () {
+            Route::get('/site', 'index')->name('site.index');
+            Route::put('/site/update', 'update')->name('site.update');
+        });
+    });
 });
