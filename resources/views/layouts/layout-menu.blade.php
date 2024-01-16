@@ -23,6 +23,14 @@
             </a>
         </li>
 
+        <li class="menu-item {{ Request::is('toast') ? 'active' : '' }}">
+            <a href="{{ route('toast.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div>Toast</div>
+            </a>
+        </li>
+
+
         <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-user"></i>

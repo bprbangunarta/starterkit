@@ -230,9 +230,14 @@
                         <div class="row" style="margin-bottom: -30px;">
                             <div class="col-sm-6 col-md-6 hidden-xs">
                                 <div>
-                                    <button class="dt-button add-new btn btn-sm btn-primary waves-effect waves-light"
+                                    {{-- <button class="dt-button add-new btn btn-sm btn-primary waves-effect waves-light"
                                         type="button">
                                         Add User
+                                    </button> --}}
+
+                                    <button id="showToastAnimation"
+                                        class="dt-button add-new btn btn-sm btn-primary waves-effect waves-light">
+                                        Show Toast
                                     </button>
 
                                     <button type="button" class="btn btn-sm btn-label-secondary">

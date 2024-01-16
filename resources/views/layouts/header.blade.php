@@ -25,10 +25,13 @@
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}" />
 <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/toastr/toastr.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/animate-css/animate.css') }}" />
 
 <!-- Helpers -->
 <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
 <script src="{{ asset('assets/js/config.js') }}"></script>
+<script src="{{ asset('assets/js/ui-toasts.js') }}"></script>
 
 <style>
     @media (max-width: 767px) {

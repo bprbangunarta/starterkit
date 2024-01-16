@@ -10,31 +10,35 @@
 
 <!-- Vendors JS -->
 <script src="{{ asset('assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/toastr/toastr.js') }}"></script>
 
 <!-- Helpers -->
 <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
 <script src="{{ asset('assets/js/ui-modals.js') }}"></script>
+<script src="{{ asset('assets/js/ui-toasts.js') }}"></script>
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @if (session('success'))
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: '{{ session('success') }}',
-            showConfirmButton: false,
-            timer: 1500
-        });
-    </script>
+    @if (session('success'))
+        <script>
+            toastr.success('{{ session('success') }}', 'Success Message', {
+                closeButton: true,
+                progressBar: true,
+                timeOut: 3000,
+                positionClass: 'toast-bottom-right'
+            });
+        </script>
+    @endif
 @endif
+
 
 @if (session('error'))
     <script>
-        Swal.fire({
-            icon: 'error',
-            title: '{{ session('error') }}',
-            showConfirmButton: false,
-            timer: 1500
+        toastr.error('{{ session('error') }}', 'Error Message', {
+            closeButton: true,
+            progressBar: true,
+            timeOut: 3000,
+            positionClass: 'toast-bottom-right'
         });
     </script>
 @endif
