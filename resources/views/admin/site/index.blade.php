@@ -49,7 +49,7 @@
                         </div>
                         <hr class="my-4 mx-n4">
 
-                        <h6>Footer Site</h6>
+                        <h6>Footer Text</h6>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label" for="multicol-username">Text Left</label>
