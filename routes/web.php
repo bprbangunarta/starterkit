@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\SiteController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,13 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'index')->name('dashboard');
+    });
+
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/user/account', 'account')->name('user.account');
+        Route::put('/user/account', 'update_account')->name('user.update.account');
+        Route::get('/user/password', 'password')->name('user.password');
+        Route::put('/user/password', 'update_password')->name('user.update.password');
     });
 
     Route::prefix('admin')->group(function () {

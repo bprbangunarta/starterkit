@@ -12,11 +12,20 @@
 <script src="{{ asset('assets/vendor/libs/bootstrap-maxlength/bootstrap-maxlength.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/toastr/toastr.js') }}"></script>
 
+<script src="{{ asset('assets/vendor/libs/@form-validation/umd/bundle/popular.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/cleavejs/cleave.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/cleavejs/cleave-phone.js') }}"></script>
+
 <!-- Helpers -->
 <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
 <script src="{{ asset('assets/js/ui-modals.js') }}"></script>
 <script src="{{ asset('assets/js/ui-toasts.js') }}"></script>
+
+<!-- Page JS -->
+@stack('script')
 
 @if (session('success'))
     @if (session('success'))
@@ -31,7 +40,6 @@
     @endif
 @endif
 
-
 @if (session('error'))
     <script>
         toastr.error('{{ session('error') }}', 'Error Message', {
@@ -42,5 +50,3 @@
         });
     </script>
 @endif
-
-@stack('script')

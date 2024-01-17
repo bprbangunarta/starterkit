@@ -9,9 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $site = Site::find(1);
-        return view('dashboard', [
-            'site' => $site,
-        ]);
+        return view('dashboard');
     }
 }
