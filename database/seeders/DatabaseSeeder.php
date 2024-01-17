@@ -13,25 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
-
-        \App\Models\User::factory()->create([
-            'name'      => 'Zulfadli Rizal',
-            'username'  => 'zulfame',
-            'phone'     => '6282320099971',
-            'email'     => 'zulfadlirizal@gmail.com',
-            'password'  => '$2y$10$9eHZErbQBjrnbril5XSaOugpDjhfzehuTDvGyvVUEuf2DKeotyaT6',
-            'is_active' => '1',
-        ]);
-
-        \App\Models\Site::factory()->create([
-            'app_name'          => 'Starterkit',
-            'meta_description'  => 'StarterKit: Solusi pintar untuk memulai proyek dengan cepat. Dapatkan beragam fitur dan alat yang mempercepat pengembangan aplikasi Anda.',
-            'meta_keyword'      => 'starterkit, laravel',
-            'meta_image'        => null,
-            'favicon'           => null,
-            'logo'              => null,
-            'footer_left'       => 'Made with ❤️ by zulfame',
-            'footer_right'      => 'Documentation',
-        ]);
+        $this->call(SiteSeeder::class);
+        $this->call(UserSeeder::class);
     }
 }
