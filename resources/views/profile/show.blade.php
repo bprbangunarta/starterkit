@@ -123,24 +123,39 @@
                                 </p>
                             </div>
                         </div>
-                        <form id="formAccountDeactivation" onsubmit="return false"
-                            class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate">
-                            <div class="form-check mb-4">
-                                <input class="form-check-input" type="checkbox" name="accountActivation"
-                                    id="accountActivation">
-                                <label class="form-check-label" for="accountActivation">I confirm my account
-                                    deactivation</label>
-                                <div
-                                    class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback">
-                                </div>
-                            </div>
-                            <button type="submit"
-                                class="btn btn-danger deactivate-account waves-effect waves-light">Deactivate
-                                Account</button>
-                            <input type="hidden">
-                        </form>
+                        <button data-bs-toggle="modal" data-bs-target="#modalDeactive"
+                            class="btn btn-danger deactivate-account waves-effect waves-light">
+                            Deactivate Account
+                        </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Modal --}}
+    <div class="modal fade" id="modalDeactive" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDeactiveTitle">Confirm Delete Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="{{ route('user.deactivation') }}">
+                    @method('PUT')
+                    @csrf
+                    <div class="modal-body">
+                        Are you sure you want to delete your account?
+                        Once you delete your account, there is no going back. Please be certain.
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-label-secondary waves-effect" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-danger waves-effect waves-light">Confirm</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
