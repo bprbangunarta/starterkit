@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="flex-grow-1">
                                     <span class="fw-medium d-block">{{ Auth::user()->name }}</span>
-                                    <x-has-role></x-has-role>
+                                    {{ Auth::user()->roles->pluck('name')[0] ?? '' }}
                                 </div>
                             </div>
                         </a>
@@ -73,15 +73,15 @@
                         <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('user.account') }}">
                             <i class="ti ti-user-check me-2 ti-sm"></i>
                             <span class="align-middle">Account</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('user.password') }}">
                             <i class="ti ti-lock me-2 ti-sm"></i>
-                            <span class="align-middle">Security</span>
+                            <span class="align-middle">Password</span>
                         </a>
                     </li>
                     <li>
