@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label">Site Logo (300x150)</label>
+                                <label class="form-label">Site Logo (100x100)</label>
                                 <input type="file" class="form-control @error('logo') is-invalid @enderror"
                                     name="logo">
 

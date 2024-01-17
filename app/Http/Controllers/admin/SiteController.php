@@ -26,7 +26,7 @@ class SiteController extends Controller
             'footer_right'      => 'required|string',
             'meta_image'        => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'logo'              => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'favicon'           => 'image|mimes:png,ico|max:2048',
+            'favicon'           => 'image|mimes:png,ico,webp|max:2048',
         ]);
 
         $data = Site::findOrFail($request->input('id'));

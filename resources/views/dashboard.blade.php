@@ -116,15 +116,15 @@
                                                 <div class="avatar-wrapper">
                                                     <div class="avatar me-3">
                                                         <img src="{{ asset('assets/img/avatars/6.png') }}" alt="Avatar"
-                                                            class="rounded">
+                                                            alt="Avatar" class="rounded">
                                                     </div>
                                                 </div>
 
                                                 <div class="d-flex flex-column">
                                                     <a href="#" class="text-body text-truncate">
-                                                        <span class="fw-medium">Zulfadli Rizal</span>
+                                                        <span class="fw-medium">{{ Auth::user()->name }}</span>
                                                     </a>
-                                                    <small class="text-muted">zulfadlirizal@gmail.com</small>
+                                                    <small class="text-muted">{{ Auth::user()->email }}</small>
                                                 </div>
                                             </div>
                                         </td>
@@ -139,7 +139,7 @@
                                             </span>
                                         </td>
 
-                                        <td>zulfame</td>
+                                        <td>{{ Auth::user()->username }}</td>
                                         <td>Pamanukan</td>
 
                                         <td>

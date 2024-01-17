@@ -4,7 +4,7 @@
             <span class="app-brand-logo demo">
                 <x-app-logo></x-app-logo>
             </span>
-            <span class="app-brand-text demo menu-text fw-bold"><x-app-name></x-app-name></span>
+            <span class="app-brand-text text-primary demo menu-text fw-bold"><x-app-name></x-app-name></span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -22,14 +22,6 @@
                 <div>Dashboard</div>
             </a>
         </li>
-
-        <li class="menu-item {{ Request::is('toast') ? 'active' : '' }}">
-            <a href="{{ route('toast.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div>Toast</div>
-            </a>
-        </li>
-
 
         <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
