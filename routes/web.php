@@ -29,8 +29,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::get('/user/account', 'account')->name('user.account');
         Route::put('/user/account', 'update_account')->name('user.update.account');
         Route::put('/user/deactivation', 'deactivation_account')->name('user.deactivation');
-
-
         Route::get('/user/password', 'password')->name('user.password');
         Route::put('/user/password', 'update_password')->name('user.update.password');
     });

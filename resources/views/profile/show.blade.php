@@ -9,11 +9,11 @@
                 <div class="card mb-4">
                     <h5 class="card-header">Account Details</h5>
                     <div class="card-body">
-                        <form action="{{ route('user.update.account') }}" method="POST" enctype="multipart/form-data">
+                        <form id="formAccountSettings" action="{{ route('user.update.account') }}" method="POST"
+                            class="fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate"
+                            enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
-
-
 
                             <div class="d-flex align-items-start align-items-sm-center gap-4 mb-4">
 
