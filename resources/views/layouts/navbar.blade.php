@@ -62,7 +62,10 @@
                                         @endif
                                     </div>
                                 </div>
-                                <x-layouts.navbar></x-layouts.navbar>
+                                <div class="flex-grow-1">
+                                    <span class="fw-medium d-block">{{ Auth::user()->name }}</span>
+                                    <x-has-role></x-has-role>
+                                </div>
                             </div>
                         </a>
                     </li>
