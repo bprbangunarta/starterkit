@@ -11,6 +11,12 @@
     @yield('content')
 
     @include('auth.layouts.footer')
+
+    <script>
+        function validateNumber(input) {
+            input.value = input.value.replace(/\D/g, '');
+        }
+    </script>
 </body>
 
 </html>

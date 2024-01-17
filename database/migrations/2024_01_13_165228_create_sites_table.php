@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('app_name');
             $table->string('meta_description');
             $table->string('meta_keyword');
-            $table->string('meta_image');
-            $table->string('favicon');
-            $table->string('logo');
+            $table->string('meta_image')->nullable();
+            $table->string('favicon')->nullable();
+            $table->string('logo')->nullable();
             $table->string('footer_left');
             $table->string('footer_right');
             $table->timestamps();

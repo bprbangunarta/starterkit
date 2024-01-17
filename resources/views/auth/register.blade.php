@@ -81,13 +81,20 @@
 
                         <div
                             class="mb-3 fv-plugins-icon-container @error('username') fv-plugins-bootstrap5-row-invalid @enderror">
-                            <label class="form-label">WhatsApp</label>
 
+                            <label class="form-label">Phone Number</label>
+                            <div class="input-group input-group-merge">
+                                <span class="input-group-text">ID (+62)</span>
+                                <input class="form-control @error('phone') invalid @enderror" type="text" name="phone"
+                                    oninput="validateNumber(this)" maxlength="12" value="{{ old('phone') }}"
+                                    placeholder="823 200 999 71">
+                            </div>
+                            {{-- 
                             <div class="input-group">
                                 <span class="input-group-text">62</span>
                                 <input type="number" class="form-control" name="phone" id="phone"
                                     value="{{ old('phone') }}" placeholder="823200999XX">
-                            </div>
+                            </div> --}}
 
                             @error('phone')
                                 <div

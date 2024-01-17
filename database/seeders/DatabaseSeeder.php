@@ -27,9 +27,9 @@ class DatabaseSeeder extends Seeder
             'app_name'          => 'Starterkit',
             'meta_description'  => 'StarterKit: Solusi pintar untuk memulai proyek dengan cepat. Dapatkan beragam fitur dan alat yang mempercepat pengembangan aplikasi Anda.',
             'meta_keyword'      => 'starterkit, laravel',
-            'meta_image'        => 'meta_image.png',
-            'favicon'           => 'favicon.png',
-            'logo'              => 'logo.png',
+            'meta_image'        => null,
+            'favicon'           => null,
+            'logo'              => null,
             'footer_left'       => 'Made with ❤️ by zulfame',
             'footer_right'      => 'Documentation',
         ]);
