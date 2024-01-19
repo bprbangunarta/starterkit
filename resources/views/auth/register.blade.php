@@ -89,12 +89,6 @@
                                     oninput="validateNumber(this)" maxlength="12" value="{{ old('phone') }}"
                                     placeholder="823 200 999 71">
                             </div>
-                            {{-- 
-                            <div class="input-group">
-                                <span class="input-group-text">62</span>
-                                <input type="number" class="form-control" name="phone" id="phone"
-                                    value="{{ old('phone') }}" placeholder="823200999XX">
-                            </div> --}}
 
                             @error('phone')
                                 <div

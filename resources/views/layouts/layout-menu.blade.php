@@ -23,7 +23,7 @@
             </a>
         </li>
 
-        <li class="menu-item {{ Request::is('user/account', 'user/password') ? 'active open' : '' }}">
+        <li class="menu-item {{ Request::is('user/account', 'user/changer/password') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-user"></i>
                 <div>User Setting</div>
@@ -34,7 +34,7 @@
                         <div>Account</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::is('user/password') ? 'active' : '' }}">
+                <li class="menu-item {{ Request::is('user/changer/password') ? 'active' : '' }}">
                     <a href="{{ route('user.password') }}" class="menu-link">
                         <div>Password</div>
                     </a>
