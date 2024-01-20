@@ -35,7 +35,7 @@ class UserFactory extends Factory
         ];
 
         $createdUser = User::create($user);
-        $createdUser->assignRole('Guest');
+        // $createdUser->assignRole('Guest');
 
         return $user;
     }
