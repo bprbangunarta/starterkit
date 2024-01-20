@@ -5,12 +5,37 @@
     <div class="container-xxl flex-grow-1 container-p-y">
 
         <div class="card">
-            <div class="card-header border-bottom">
-                <h5 class="card-title mb-3">Search Filter</h5>
-                konten
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer border-bottom">
+                {{-- <div class="card-header border-bottom"> --}}
+                {{-- <h5 class="card-title mb-3">Search Filter</h5>
+                konten --}}
+
+                <div class="row mx-1">
+                    <div class="col-sm-12 col-md-3">
+                        <div class="dataTables_length" id="DataTables_Table_0_length">
+                            <button class="dt-button add-new btn btn-primary mb-3 mb-md-0 waves-effect waves-light"
+                                tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal"
+                                data-bs-target="#addPermissionModal"><span>Add User</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <div
+                            class="dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-md-end justify-content-center flex-wrap me-1">
+                            <div>
+                                <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                                    <label>Search
+                                        <input type="search" class="form-control" placeholder="Search.."
+                                            aria-controls="DataTables_Table_0">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="card-body">
+            <div class="card-body" style="margin-top: -20px;">
                 <div class="table-responsive text-nowrap mb-3" style="border-bottom: 1px solid #DBDADE;">
                     <table class="table">
                         <thead class="fw-bold">
@@ -50,8 +75,8 @@
                                     <td>
                                         <span class="text-truncate d-flex align-items-center">
                                             <span
-                                                class="badge badge-center rounded-pill bg-label-success w-px-30 h-px-30 me-2">
-                                                <i class="ti ti-circle-check ti-sm"></i>
+                                                class="badge badge-center rounded-pill bg-label-primary w-px-30 h-px-30 me-2">
+                                                <i class="ti ti-user ti-sm"></i>
                                             </span>
                                             {{ $item->roles->pluck('name')[0] ?? '' }}
                                         </span>
@@ -99,23 +124,10 @@
                 </div>
 
                 <div class="row" style="margin-bottom: -30px;">
-                    {{-- <div class="col-sm-6 col-md-6 hidden-xs">
-                        <div>
-                            <button class="dt-button add-new btn btn-sm btn-primary waves-effect waves-light"
-                                type="button">
-                                Add User
-                            </button>
-
-                            <button type="button" class="btn btn-sm btn-label-secondary">
-                                Showing {{ $users->firstItem() }} to {{ $users->lastItem() }} of {{ $users->total() }}
-                            </button>
-                        </div>
-                    </div> --}}
-
                     <div class="col-sm-12 col-md-12">
                         <div>
                             <nav aria-label="Page navigation">
-                                {{ $users->withQueryString()->links('vendor.pagination.bootstrap-5') }}
+                                {{ $users->withQueryString()->onEachSide(0)->links('vendor.pagination.bootstrap-5') }}
                             </nav>
                         </div>
                     </div>

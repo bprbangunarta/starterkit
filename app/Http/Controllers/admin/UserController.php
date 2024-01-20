@@ -20,7 +20,7 @@ class UserController extends Controller
                 ->paginate(10);
         } else {
             $users = User::orderBy('name', 'ASC')
-                ->paginate(1);
+                ->paginate(10);
         }
 
         $roles = Role::orderBy('name')->get();
