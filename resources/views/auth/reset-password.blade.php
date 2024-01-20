@@ -114,5 +114,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('assets/js/pages-auth.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/pages-auth.js') }}"></script> --}}
 @endpush

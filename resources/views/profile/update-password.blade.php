@@ -10,7 +10,7 @@
                     <h5 class="card-header">Change Password</h5>
                     <div class="card-body">
                         <form id="formAccountSettings" method="POST" class="fv-plugins-bootstrap5 fv-plugins-framework"
-                            novalidate="novalidate" action="{{ route('user.update.password') }}">
+                            novalidate="novalidate" action="{{ route('user-password.update') }}">
                             @method('PUT')
                             @csrf
 

@@ -35,10 +35,11 @@ class JetstreamServiceProvider extends ServiceProvider
                 ->first();
 
             if ($user && $user->is_active == 1 && Hash::check($request->password, $user->password)) {
+                session()->flash('success', "Welcome $user->name");
                 return $user;
             } elseif ($user && $user->is_active != 1) {
                 throw ValidationException::withMessages([
-                    'auth' => ['Sorry, your account has been disabled.'],
+                    'auth' => ['Account activated. Please contact the Administrator'],
                 ]);
             }
         });

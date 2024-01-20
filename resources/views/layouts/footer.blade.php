@@ -28,16 +28,14 @@
 @stack('script')
 
 @if (session('success'))
-    @if (session('success'))
-        <script>
-            toastr.success('{{ session('success') }}', 'Success Message', {
-                closeButton: true,
-                progressBar: true,
-                timeOut: 3000,
-                positionClass: 'toast-bottom-right'
-            });
-        </script>
-    @endif
+    <script>
+        toastr.success('{{ session('success') }}', 'Success Message', {
+            closeButton: true,
+            progressBar: true,
+            timeOut: 3000,
+            positionClass: 'toast-bottom-right'
+        });
+    </script>
 @endif
 
 @if (session('error'))
