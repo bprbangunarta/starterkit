@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\SiteController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
             Route::controller(SiteController::class)->group(function () {
                 Route::get('/site', 'index')->name('site.index');
                 Route::put('/site/update', 'update')->name('site.update');
+            });
+
+            Route::controller(AdminUserController::class)->group(function () {
+                Route::get('/user', 'index')->name('admin.user.index');
             });
         });
     });

@@ -54,8 +54,8 @@
                 </a>
             </li>
 
-            <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
-                <a href="#" class="menu-link">
+            <li class="menu-item {{ Request::is('admin/user') ? 'active' : '' }}">
+                <a href="{{ route('admin.user.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons ti ti-users"></i>
                     <div>Users Management</div>
                 </a>
