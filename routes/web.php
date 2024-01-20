@@ -33,10 +33,12 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::put('/user/changer/password', 'update_password')->name('user.update.password');
     });
 
-    Route::prefix('admin')->group(function () {
-        Route::controller(SiteController::class)->group(function () {
-            Route::get('/site', 'index')->name('site.index');
-            Route::put('/site/update', 'update')->name('site.update');
+    Route::group(['middleware' => ['role:Administrator']], function () {
+        Route::prefix('admin')->group(function () {
+            Route::controller(SiteController::class)->group(function () {
+                Route::get('/site', 'index')->name('site.index');
+                Route::put('/site/update', 'update')->name('site.update');
+            });
         });
     });
 });

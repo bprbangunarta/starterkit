@@ -17,7 +17,7 @@
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
 
-            @include('layouts.layout-menu')
+            @include('layouts.menu')
 
             <div class="layout-page">
                 @include('layouts.navbar')

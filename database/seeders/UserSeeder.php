@@ -33,8 +33,19 @@ class UserSeeder extends Seeder
                 'is_active' => '1',
             ], $default_user_value));
 
+            $guest = User::create(array_merge([
+                'name'      => 'Guest',
+                'username'  => 'guest',
+                'phone'     => '',
+                'email'     => 'guest@gmail.com',
+                'is_active' => '1',
+            ], $default_user_value));
+
             Role::create(['name' => 'Administrator']);
+            Role::create(['name' => 'Guest']);
+
             $admin->assignRole('Administrator');
+            $guest->assignRole('Guest');
 
             DB::commit();
         } catch (\Throwable $th) {

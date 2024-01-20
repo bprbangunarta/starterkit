@@ -40,4 +40,8 @@
             display: none !important;
         }
     }
+
+    .disable {
+        pointer-events: none;
+    }
 </style>

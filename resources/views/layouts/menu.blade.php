@@ -42,49 +42,50 @@
             </ul>
         </li>
 
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Administrator</span>
-        </li>
+        @can('Administrator')
+            <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">Administrator</span>
+            </li>
 
-        <li class="menu-item {{ Request::is('admin/site') ? 'active' : '' }}">
-            <a href="{{ route('site.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-world"></i>
-                <div>Site Configuration</div>
-            </a>
-        </li>
+            <li class="menu-item {{ Request::is('admin/site') ? 'active' : '' }}">
+                <a href="{{ route('site.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-world"></i>
+                    <div>Site Configuration</div>
+                </a>
+            </li>
 
-        <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
-            <a href="#" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-users"></i>
-                <div>Users Management</div>
-            </a>
-        </li>
+            <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                <a href="#" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-users"></i>
+                    <div>Users Management</div>
+                </a>
+            </li>
 
-        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-settings"></i>
-                <div>Roles &amp; Permissions</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
-                        <div>Roles</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
-                        <div>Permission</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
-                        <div>Assign Permission</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
+            <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons ti ti-settings"></i>
+                    <div>Roles &amp; Permissions</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item">
+                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <div>Roles</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <div>Permission</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <div>Assign Permission</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
-        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+            {{-- <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-list"></i>
                 <div>Menu Management</div>
@@ -101,6 +102,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> --}}
+        @endcan
     </ul>
 </aside>
