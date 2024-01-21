@@ -34,9 +34,9 @@ class UserSeeder extends Seeder
             ], $default_user_value));
 
             $guest = User::create(array_merge([
-                'name'      => 'Guest',
+                'name'      => 'Mutia Wahida Rahmi',
                 'username'  => 'guest',
-                'phone'     => '',
+                'phone'     => '628112051232',
                 'email'     => 'guest@gmail.com',
                 'is_active' => '1',
             ], $default_user_value));
