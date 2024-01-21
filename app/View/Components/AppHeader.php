@@ -1,13 +1,13 @@
 <?php
 
-namespace App\View\Components\layouts;
+namespace App\View\Components;
 
 use App\Models\Site;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class header extends Component
+class AppHeader extends Component
 {
     /**
      * Create a new component instance.
@@ -23,7 +23,7 @@ class header extends Component
     public function render(): View|Closure|string
     {
         $site = Site::find(1);
-        return view('components.layouts.header', [
+        return view('components.app-header', [
             'site' => $site,
         ]);
     }

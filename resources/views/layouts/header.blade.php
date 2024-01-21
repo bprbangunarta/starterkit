@@ -1,4 +1,4 @@
-<x-layouts.header></x-layouts.header>
+<x-app-header></x-app-header>
 
 <!-- Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
