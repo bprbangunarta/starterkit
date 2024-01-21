@@ -46,6 +46,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
                 Route::post('/user/add', 'create')->name('admin.user.create');
                 Route::put('/user/update', 'update')->name('admin.user.update');
                 Route::delete('/user/{id}/destroy', 'destroy')->name('admin.user.destroy');
+                Route::put('/user/reset-password/{id}', 'reset_password')->name('admin.user.reset_password');
             });
         });
     });

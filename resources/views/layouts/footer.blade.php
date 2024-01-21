@@ -4,7 +4,6 @@
 <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/node-waves/node-waves.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
-<script src="{{ asset('assets/vendor/libs/i18n/i18n.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/hammer/hammer.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
 
@@ -18,13 +17,10 @@
 <script src="{{ asset('assets/vendor/libs/cleavejs/cleave-phone.js') }}"></script>
 <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
-{{-- <script src="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.js') }}"></script> --}}
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- Helpers -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
-<script src="{{ asset('assets/js/ui-modals.js') }}"></script>
-<script src="{{ asset('assets/js/ui-toasts.js') }}"></script>
 
 <!-- Page JS -->
 @stack('script')

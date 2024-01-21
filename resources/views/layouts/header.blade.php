@@ -34,7 +34,6 @@
 <!-- Helpers -->
 <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
 <script src="{{ asset('assets/js/config.js') }}"></script>
-<script src="{{ asset('assets/js/ui-toasts.js') }}"></script>
 
 <style>
     @media (max-width: 767px) {

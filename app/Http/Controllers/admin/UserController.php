@@ -70,41 +70,6 @@ class UserController extends Controller
         }
     }
 
-    // public function update(Request $request)
-    // {
-    //     $id = $request->input('id');
-    //     $phone = "62" . request('phone');
-
-    //     $user = User::find($id);
-
-    //     if ($user) {
-    //         $check = User::where('email', $request->email)
-    //             ->orWhere('username', $request->username)
-    //             ->orWhere('phone', $phone)
-    //             ->where('id', '!=', $id)
-    //             ->count();
-
-    //         if ($check > 0) {
-    //             return redirect()->back()->with('error', 'User already exists!');
-    //         }
-
-    //         User::where('id', $user->id)
-    //             ->update([
-    //                 'name'      => request('name'),
-    //                 'username'  => request('username'),
-    //                 'email'     => request('email'),
-    //                 'phone'     => $phone,
-    //                 'is_active' => request('is_active'),
-    //             ]);
-
-    //         $user->syncRoles([request('role')]);
-
-    //         return redirect()->back()->with('success', 'Updated successfully!');
-    //     } else {
-    //         return redirect()->back()->with('error', 'User not found.');
-    //     }
-    // }
-
     public function update(Request $request)
     {
         $id = $request->input('id');
@@ -143,7 +108,6 @@ class UserController extends Controller
         }
     }
 
-
     public function destroy($id)
     {
         $user = User::find($id);
@@ -154,5 +118,22 @@ class UserController extends Controller
 
         $user->delete();
         return response()->json(['success' => true]);
+    }
+
+    public function reset_password($id)
+    {
+        $user = User::find($id);
+
+        if ($user) {
+            $data = [
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            ];
+
+            User::where('id', $user->id)->update($data);
+
+            return redirect()->back()->with('success', 'Reset password successfully!');
+        } else {
+            return redirect()->back()->with('error', 'User not found.');
+        }
     }
 }

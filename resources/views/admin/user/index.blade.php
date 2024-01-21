@@ -96,7 +96,13 @@
                                     </td>
 
                                     <td class="text-center">
-                                        <a href="#" class="btn-edit" data-id="{{ $item->id }}"
+                                        <a href="javascript:void(0);" class="btn-reset" data-id="{{ $item->id }}">
+                                            <span class="badge badge-center bg-label-warning w-px-30 h-px-30">
+                                                <i class="ti ti-lock ti-sm"></i>
+                                            </span>
+                                        </a>
+
+                                        <a href="javascript:void(0);" class="btn-edit" data-id="{{ $item->id }}"
                                             data-name="{{ $item->name }}" data-username="{{ $item->username }}"
                                             data-email="{{ $item->email }}" data-phone="{{ substr($item->phone, 2) }}"
                                             data-role="{{ $item->roles->pluck('name')[0] ?? '' }}"
@@ -219,7 +225,6 @@
                     @csrf
 
                     <input type="text" name="id" id="id" class="form-control" hidden />
-
                     <div class="modal-body">
                         <div class="row g-2">
                             <div class="col mb-3">
@@ -281,6 +286,37 @@
         </div>
     </div>
     <!--/ Edit User Modal -->
+
+    <!-- Reset Password User Modal -->
+    <div class="modal fade" id="resetPassword" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCenterTitle">Reset Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('admin.user.reset_password', $item->id) }}" method="POST" id="resetForm">
+                    @method('PUT')
+                    @csrf
+
+                    <div class="modal-body">
+                        Are you sure you want to reset? The password will be returned to default
+                        data.
+
+                        <input type="text" name="user_id" id="user_id" class="form-control mb-1"
+                            placeholder="ID" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-label-secondary waves-effect" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-warning waves-effect waves-light">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--/ Reset Password User Modal -->
 @endsection
 
 @push('script')
@@ -363,7 +399,7 @@
                 text: 'Are you sure? You won\'t be able to revert this!',
                 icon: 'question',
                 showCancelButton: true,
-                confirmButtonColor: '#d33',
+                confirmButtonColor: '#EA5354',
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -397,6 +433,44 @@
                     });
                 }
             });
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '.btn-reset', function() {
+            var user_id = $(this).data('id');
+            $('#user_id').val(user_id);
+
+            $('#resetPassword').modal('show');
+
+            $('#resetForm').data('user_id', user_id);
+        });
+
+        $('#resetForm').submit(function(e) {
+            e.preventDefault();
+
+            var user_id = $('#resetForm').data('user_id');
+
+            var formData = $('#resetForm').serialize();
+
+            $.ajax({
+                url: '/admin/user/reset-password/' + user_id,
+                type: 'PUT',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: formData,
+                success: function(response) {
+                    console.log(response);
+                    window.location.reload();
+                },
+                error: function(error) {
+                    console.error(error);
+                    window.location.reload();
+                }
+            });
+
+            $('#resetPassword').modal('hide');
         });
     </script>
 @endpush
