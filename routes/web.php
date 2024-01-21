@@ -43,6 +43,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
             Route::controller(AdminUserController::class)->group(function () {
                 Route::get('/user', 'index')->name('admin.user.index');
+                Route::post('/user/add', 'create')->name('admin.user.create');
+                Route::put('/user/update', 'update')->name('admin.user.update');
+                Route::delete('/user/{id}/destroy', 'destroy')->name('admin.user.destroy');
             });
         });
     });
