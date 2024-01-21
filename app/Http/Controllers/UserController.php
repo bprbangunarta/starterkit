@@ -38,7 +38,7 @@ class UserController extends Controller
         $request->validate([
             'name'      => 'required|string|max:255',
             'username'  => 'required|string|max:255|unique:users,username,' . Auth::user()->id,
-            'phone'     => 'required|string|size:11|unique:users,phone,' . Auth::user()->id,
+            'phone'     => 'required|string|size:10|unique:users,phone,' . Auth::user()->id,
             'email'     => 'required|string|email|max:255|unique:users,email,' . Auth::user()->id,
         ]);
 

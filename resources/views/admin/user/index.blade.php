@@ -6,10 +6,6 @@
 
         <div class="card">
             <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer border-bottom">
-                {{-- <div class="card-header border-bottom"> --}}
-                {{-- <h5 class="card-title mb-3">Search Filter</h5>
-                konten --}}
-
                 <div class="row mx-1">
                     <div class="col-sm-12 col-md-3">
                         <div class="dataTables_length" id="DataTables_Table_0_length">
@@ -23,12 +19,14 @@
                         <div
                             class="dt-action-buttons text-xl-end text-lg-start text-md-end text-start d-flex align-items-center justify-content-md-end justify-content-center flex-wrap me-1">
                             <div>
-                                <div id="DataTables_Table_0_filter" class="dataTables_filter">
-                                    <label>Search
-                                        <input type="search" class="form-control" placeholder="Search.."
-                                            aria-controls="DataTables_Table_0">
-                                    </label>
-                                </div>
+                                <form action="{{ route('admin.user.index') }}" method="GET">
+                                    <div class="dataTables_filter">
+                                        <label>Search
+                                            <input type="search" class="form-control" name="keyword"
+                                                value="{{ request('keyword') }}" placeholder="Search..">
+                                        </label>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -58,8 +56,13 @@
                                         <div class="d-flex justify-content-start align-items-center user-name">
                                             <div class="avatar-wrapper">
                                                 <div class="avatar me-3">
-                                                    <img src="{{ asset('assets/img/avatars/6.png') }}" alt="Avatar"
-                                                        alt="Avatar" class="rounded">
+                                                    @if (is_null($item->profile_photo_path))
+                                                        <img src="{{ asset('assets/img/avatars/14.png') }}" alt="Avatar"
+                                                            alt="Avatar" class="rounded">
+                                                    @else
+                                                        <img src="{{ asset('storage') . '/' . $item->profile_photo_path }}"
+                                                            alt="Avatar" alt="Avatar" class="rounded">
+                                                    @endif
                                                 </div>
                                             </div>
 
