@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\SiteController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -55,6 +56,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
                 Route::post('/role/add', 'create')->name('admin.role.create');
                 Route::put('/role/update', 'update')->name('admin.role.update');
                 Route::delete('/role/destroy', 'destroy')->name('admin.role.destroy');
+            });
+
+            Route::controller(PermissionController::class)->group(function () {
+                Route::get('/permission', 'index')->name('admin.permission.index');
+                Route::post('/permission/add', 'create')->name('admin.permission.create');
+                Route::put('/permission/update', 'update')->name('admin.permission.update');
+                Route::delete('/permission/destroy', 'destroy')->name('admin.permission.destroy');
             });
         });
     });

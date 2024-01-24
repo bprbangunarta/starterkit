@@ -54,13 +54,13 @@ class RoleController extends Controller
 
     public function update(Request $request)
     {
-        $role_id = $request->input('id');
-        $role = Role::find($role_id);
+        $id = $request->input('id');
+        $role = Role::find($id);
 
         if ($role) {
             $newName = $request->input('name');
 
-            $check = Role::where('name', $newName)->where('id', '!=', $role_id)->count();
+            $check = Role::where('name', $newName)->where('id', '!=', $id)->count();
 
             if ($check > 0) {
                 return redirect()->back()->with('error', 'Role already exists!');

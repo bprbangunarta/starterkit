@@ -61,7 +61,7 @@
                 </a>
             </li>
 
-            <li class="menu-item {{ Request::is('admin/role') ? 'active open' : '' }}">
+            <li class="menu-item {{ Request::is('admin/role', 'admin/permission') ? 'active open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons ti ti-settings"></i>
                     <div>Roles &amp; Permissions</div>
@@ -73,8 +73,9 @@
                             <div>Roles</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                    <li class="menu-item {{ Request::is('admin/permission') ? 'active' : '' }}"">
+                        <a href="{{ route('admin.permission.index') }}"
+                            class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
                             <div>Permission</div>
                         </a>
                     </li>
