@@ -303,8 +303,7 @@
                         Are you sure you want to reset? The password will be returned to default
                         data.
 
-                        <input type="text" name="user_id" id="user_id" class="form-control mb-1"
-                            placeholder="ID" />
+                        <input type="text" name="user_id" id="user_id" class="form-control mb-1" hidden />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-label-secondary waves-effect" data-bs-dismiss="modal">

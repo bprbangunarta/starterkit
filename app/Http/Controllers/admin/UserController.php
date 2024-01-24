@@ -96,6 +96,7 @@ class UserController extends Controller
                 'email'     => request('email'),
                 'phone'     => $phone,
                 'is_active' => request('is_active'),
+                'updated_at' => now(),
             ];
 
             User::where('id', $user->id)->update($updateData);

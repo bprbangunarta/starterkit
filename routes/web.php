@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\SiteController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\DashboardController;
@@ -47,6 +48,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
                 Route::put('/user/update', 'update')->name('admin.user.update');
                 Route::delete('/user/{id}/destroy', 'destroy')->name('admin.user.destroy');
                 Route::put('/user/reset-password/{id}', 'reset_password')->name('admin.user.reset_password');
+            });
+
+            Route::controller(RoleController::class)->group(function () {
+                Route::get('/role', 'index')->name('admin.role.index');
+                Route::post('/role/add', 'create')->name('admin.role.create');
+                Route::put('/role/update', 'update')->name('admin.role.update');
+                Route::delete('/role/destroy', 'destroy')->name('admin.role.destroy');
             });
         });
     });
