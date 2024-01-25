@@ -14,9 +14,14 @@ class UserController extends Controller
     {
         $keyword = request('keyword');
         if ($keyword) {
-            $users = User::where('name', 'LIKE', '%' . $keyword . '%')
-                ->orWhere('username', 'LIKE', '%' . $keyword . '%')
-                ->orWhere('email', 'LIKE', '%' . $keyword . '%')
+            $users = User::where(function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('username', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('email', 'LIKE', '%' . $keyword . '%');
+            })
+                ->orWhereHas('roles', function ($query) use ($keyword) {
+                    $query->where('name', 'LIKE', '%' . $keyword . '%');
+                })
                 ->orderBy('name', 'ASC')
                 ->paginate(10);
         } else {
