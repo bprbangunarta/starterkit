@@ -82,11 +82,6 @@
                             <div>Permission</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
-                            <div>Assign Permission</div>
-                        </a>
-                    </li>
                 </ul>
             </li>
 
