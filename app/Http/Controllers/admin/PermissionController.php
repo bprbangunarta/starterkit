@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Modul;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionController extends Controller
 {
@@ -89,6 +90,70 @@ class PermissionController extends Controller
             return redirect()->back()->with('success', 'Deleted successfully!');
         } else {
             return redirect()->back()->with('error', 'Permission not found.');
+        }
+    }
+
+    public function assign()
+    {
+        try {
+            request()->validate([
+                'role' => 'required',
+                'permissions' => 'array|required',
+            ]);
+
+            $role = Role::find(request('role'));
+
+            if (!$role) {
+                throw new \Exception('Role not found.');
+            }
+
+            $role->givePermissionTo(request('permissions'));
+
+            return back()->with('success', 'Assign Permissions successfully!');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Permissions already Assign.');
+        }
+    }
+
+    public function sync_edit(Role $role)
+    {
+        $keyword = request('keyword');
+        if ($keyword) {
+            $roles = Role::where('name', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('guard_name', 'LIKE', '%' . $keyword . '%')
+                ->orderBy('name', 'ASC')
+                ->paginate(10);
+        } else {
+            $roles = Role::orderBy('name', 'ASC')
+                ->paginate(10);
+        }
+
+        $permissions = Permission::orderBy('name', 'ASC')
+            ->paginate(10);
+
+        return view('admin.permission.sync', [
+            'role'        => $role,
+            'roles'       => $roles,
+            'permissions' => $permissions,
+        ]);
+    }
+
+    public function sync_update(Role $role)
+    {
+        try {
+            request()->validate([
+                'role' => 'required',
+                'permissions' => 'array|required',
+            ]);
+
+            if (!$role) {
+                throw new \Exception('Role not found.');
+            }
+
+            $role->syncPermissions(request('permissions'));
+            return redirect('admin/role')->with('success', 'Sync Permissions successfully!');
+        } catch (\Exception $e) {
+            return redirect('admin/role')->with('error', 'Failed to Sync Permissions.');
         }
     }
 }

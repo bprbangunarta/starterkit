@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -21,8 +22,12 @@ class RoleController extends Controller
                 ->paginate(10);
         }
 
+        $permissions = Permission::orderBy('name', 'ASC')
+            ->paginate(10);
+
         return view('admin.role.index', [
-            'roles' => $roles
+            'roles'       => $roles,
+            'permissions' => $permissions,
         ]);
     }
 

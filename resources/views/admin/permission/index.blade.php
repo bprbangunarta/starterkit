@@ -36,9 +36,10 @@
                     <table class="table">
                         <thead class="fw-bold">
                             <tr class="text-danger">
-                                <td>Permission Name</td>
-                                <td>Assign To</td>
-                                <td style="width:10%;">Guard</td>
+                                <td style="width:15%;">Permission Name</td>
+                                <td style="width:15%;">Guard</td>
+                                <td style="width:15%;">Created At</td>
+                                <td style="width:10%;">Updated At</td>
                                 <td class="text-center" style="width:10%;">Action</td>
                             </tr>
                         </thead>
@@ -49,25 +50,11 @@
                             @forelse ($permissions as $index => $item)
                                 <tr>
                                     <td>{{ $item->name }}</td>
-
-                                    <td>
-                                        <span class="text-nowrap">
-                                            <a href="{{ route('admin.user.index') }}?keyword=Administrator">
-                                                <span class="badge bg-label-primary m-1">Administrator
-                                                </span>
-                                            </a>
-                                        </span>
-                                    </td>
-
                                     <td>{{ $item->guard_name }}</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->updated_at }}</td>
 
                                     <td class="text-center">
-                                        <a href="javascript:void(0);" class="btn-give" data-id="{{ $item->id }}">
-                                            <span class="badge badge-center bg-label-success w-px-30 h-px-30">
-                                                <i class="ti ti-lock ti-sm"></i>
-                                            </span>
-                                        </a>
-
                                         <a href="javascript:void(0);" class="btn-edit" data-id="{{ $item->id }}"
                                             data-name="{{ $item->name }}" data-guard_name="{{ $item->guard_name }}">
                                             <span class="badge badge-center bg-label-primary w-px-30 h-px-30">

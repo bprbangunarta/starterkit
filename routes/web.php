@@ -63,6 +63,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
                 Route::post('/permission/add', 'create')->name('admin.permission.create');
                 Route::put('/permission/update', 'update')->name('admin.permission.update');
                 Route::delete('/permission/destroy', 'destroy')->name('admin.permission.destroy');
+
+                Route::post('/permission/assign', 'assign')->name('admin.permission.assign');
+                Route::get('/permission/sync/{role}/edit', 'sync_edit')->name('admin.permission.assign.edit');
+                Route::put('/permission/sync/{role}/update', 'sync_update')->name('admin.permission.assign.update');
             });
         });
     });

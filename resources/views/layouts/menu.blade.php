@@ -16,12 +16,14 @@
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
-        <li class="menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
-            <a href="{{ route('dashboard') }}" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
-                <div>Dashboard</div>
-            </a>
-        </li>
+        @hasanyrole(Auth::user()->roles->pluck('name')[0] ?? '')
+            <li class="menu-item {{ Request::is('dashboard') ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}" class="menu-link">
+                    <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                    <div>Dashboard</div>
+                </a>
+            </li>
+        @endhasanyrole
 
         <li class="menu-item {{ Request::is('user/account', 'user/changer/password') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -61,13 +63,14 @@
                 </a>
             </li>
 
-            <li class="menu-item {{ Request::is('admin/role', 'admin/permission') ? 'active open' : '' }}">
+            <li
+                class="menu-item {{ Request::is('admin/role', 'admin/permission', 'admin/permission/sync/*/edit') ? 'active open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
                     <i class="menu-icon tf-icons ti ti-settings"></i>
                     <div>Roles &amp; Permissions</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item {{ Request::is('admin/role') ? 'active' : '' }}">
+                    <li class="menu-item {{ Request::is('admin/role', 'admin/permission/sync/*/edit') ? 'active' : '' }}">
                         <a href="{{ route('admin.role.index') }}"
                             class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
                             <div>Roles</div>

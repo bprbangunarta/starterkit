@@ -5,13 +5,14 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="row">
 
-            <!-- Assign Permission -->
+            <!-- Sync Permission -->
             <div class="col-xl-4 mb-4 col-lg-5 col-12">
                 <div class="card">
                     <div class="d-flex align-items-end row">
                         <div class="col-12">
                             <div class="card-body text-nowrap">
-                                <form action="{{ route('admin.permission.assign') }}" method="POST">
+                                <form action="{{ route('admin.permission.assign.update', $role) }}" method="POST">
+                                    @method('PUT')
                                     @csrf
 
                                     <div class="mb-3">
@@ -20,7 +21,9 @@
                                             data-allow-clear="true" name="role" required>
                                             <option value="">Select</option>
                                             @foreach ($roles as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option {{ $role->id == $item->id ? 'selected' : '' }}>
+                                                    {{ $item->name }}
+                                                </option>
                                             @endforeach
                                         </select>
 
@@ -39,7 +42,12 @@
                                                 multiple name="permissions[]" required>
                                                 <optgroup label="Select Multiple">
                                                     @foreach ($permissions as $item)
-                                                        <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                                        <option
+                                                            {{ $role->permissions()->find($item->id) ? 'selected' : '' }}
+                                                            value="{{ $item->name }}">
+                                                            {{ $item->name }}
+                                                        </option>
+                                                        {{-- <option value="{{ $item->name }}">{{ $item->name }}</option> --}}
                                                     @endforeach
                                                 </optgroup>
                                             </select>
@@ -55,7 +63,7 @@
 
                                     <button type="submit" class="btn btn-primary waves-effect waves-light"
                                         style="width: 100%;">
-                                        Assign To
+                                        Sync Permission
                                     </button>
                                 </form>
                             </div>
@@ -63,7 +71,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Assign Permission -->
+            <!-- Sync Permission -->
 
             <!-- Role List -->
             <div class="col-xl-8 mb-4 col-lg-7 col-12">
