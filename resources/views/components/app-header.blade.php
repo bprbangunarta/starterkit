@@ -8,7 +8,7 @@
     <meta property="og:image" content="{{ asset('storage') . '/' . $site->meta_image }}">
 @endif
 @if (is_null($site->favicon))
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.png') }}" />
 @else
     <link rel="icon" type="image/x-icon" href="{{ asset('storage') . '/' . $site->favicon }}" />
 @endif

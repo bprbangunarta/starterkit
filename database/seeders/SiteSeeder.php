@@ -17,14 +17,14 @@ class SiteSeeder extends Seeder
         DB::beginTransaction();
         try {
             Site::create(array_merge([
-                'app_name'          => 'Starterkit',
-                'meta_description'  => 'StarterKit: Solusi pintar untuk memulai proyek dengan cepat. Dapatkan beragam fitur dan alat yang mempercepat pengembangan aplikasi Anda.',
-                'meta_keyword'      => 'starterkit, laravel',
+                'app_name'          => 'SIPEBRI',
+                'meta_description'  => 'Sistem Pemberian Kredit BPR Bangunarta',
+                'meta_keyword'      => 'bpr bangunarta, bangunarta, sipebri, login sipebri',
                 'meta_image'        => null,
                 'favicon'           => null,
                 'logo'              => null,
-                'footer_left'       => 'Made with ❤️ by zulfame',
-                'footer_right'      => 'Documentation',
+                'footer_left'       => 'PT. BPR BANGUNARTA',
+                'footer_right'      => 'Version 2.0.1',
             ],));
 
             DB::commit();

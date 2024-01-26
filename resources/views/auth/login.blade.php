@@ -36,10 +36,9 @@
                         @csrf
                         <div
                             class="mb-3 fv-plugins-icon-container @error('auth') fv-plugins-bootstrap5-row-invalid @enderror">
-                            <label class="form-label">Email or Username</label>
+                            <label class="form-label">Username</label>
                             <input type="text" class="form-control @error('auth') is-invalid @enderror" id="auth"
-                                name="auth" placeholder="Enter your email or username" value="{{ old('auth') }}"
-                                required>
+                                name="auth" placeholder="Enter your username" value="{{ old('auth') }}" required>
 
                             @error('auth')
                                 <div
@@ -60,7 +59,7 @@
                             <div class="input-group input-group-merge has-validation">
                                 <input type="password" id="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
-                                    placeholder="············" aria-describedby="password">
+                                    placeholder="Enter your password" aria-describedby="password">
                                 <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                             </div>
 

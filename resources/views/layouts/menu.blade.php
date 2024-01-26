@@ -85,24 +85,304 @@
                 </ul>
             </li>
 
-            {{-- <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+            <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons ti ti-database"></i>
+                    <div>Master Data Kredit</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <div>Add Pengajuan</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <div>List Pengajuan</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <div>Otor Pengajuan</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        @endcan
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Main Menu</span>
+        </li>
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-list"></i>
-                <div>Menu Management</div>
+                <i class="menu-icon tf-icons ti ti-users"></i>
+                <div>Pengajuan Kredit</div>
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
                     <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
-                        <div>List Menu</div>
+                        <div>Add Pengajuan</div>
                     </a>
                 </li>
-                <li class="menu-item">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
                     <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
-                        <div>List Submenu</div>
+                        <div>List Pengajuan</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Otor Pengajuan</div>
                     </a>
                 </li>
             </ul>
-        </li> --}}
-        @endcan
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-report-analytics"></i>
+                <div>Analisa Kredit</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Jadwal Survey</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Input Analisa</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Input Persetujuan</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Reverse Persetujuan</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-ambulance"></i>
+                <div>Rescue Kredit</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Jadwal Survey</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Input Analisa</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Input Persetujuan</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Reverse Persetujuan</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-notification"></i>
+                <div>Notifikasi Kredit</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Add Notifikasi</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>List Notifikasi</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Otor Notifikasi</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-file-description"></i>
+                <div>Perjanjian Kredit</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Add Perjanjian</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>List Perjanjian</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Otor Perjanjian</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+            <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-moneybag"></i>
+                <div>Realisasi Kredit</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+            <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-report-off"></i>
+                <div>Penolakan Kredit</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-printer"></i>
+                <div>Cetak Berkas</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Pengajuan Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Analisa Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Rescue Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Notifikasi Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Perjanjian Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Penolakan Kredit</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-report"></i>
+                <div>Laporan Kredit</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Pengajuan Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Analisa Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Rescue Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Notifikasi Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Perjanjian Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Realisasi Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Penolakan Kredit</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons ti ti-tools"></i>
+                <div>Checking Tool</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Tracking Pengajuan</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Pembukaan CIF</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Droping Agunan</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Droping Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Pengecekan CIF</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Simulasi Kredit</div>
+                    </a>
+                </li>
+                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                        <div>Simulasi Asuransi</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
     </ul>
 </aside>
