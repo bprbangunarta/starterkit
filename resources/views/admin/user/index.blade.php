@@ -35,7 +35,7 @@
                 <div class="table-responsive text-nowrap mb-3" style="border-bottom: 1px solid #DBDADE;">
                     <table class="table">
                         <thead class="fw-bold">
-                            <tr class="text-danger">
+                            <tr>
                                 <td>User</td>
                                 <td style="width:15%;">Role</td>
                                 <td style="width:15%;">Username</td>

@@ -66,7 +66,7 @@
             <li
                 class="menu-item {{ Request::is('admin/role', 'admin/permission', 'admin/permission/sync/*/edit') ? 'active open' : '' }}">
                 <a href="javascript:void(0);" class="menu-link menu-toggle">
-                    <i class="menu-icon tf-icons ti ti-settings"></i>
+                    <i class="menu-icon tf-icons ti ti-lock"></i>
                     <div>Roles &amp; Permissions</div>
                 </a>
                 <ul class="menu-sub">
@@ -93,17 +93,37 @@
                 <ul class="menu-sub">
                     <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
                         <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
-                            <div>Add Pengajuan</div>
+                            <div>Data Survey</div>
                         </a>
                     </li>
                     <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
                         <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
-                            <div>List Pengajuan</div>
+                            <div>Data Usulan</div>
                         </a>
                     </li>
                     <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
                         <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
-                            <div>Otor Pengajuan</div>
+                            <div>Data Jaminan</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <div>Data Tracking</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <div>Data Nasabah</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <div>Data Pengajuan</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+                        <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
+                            <div>Data Pendamping</div>
                         </a>
                     </li>
                 </ul>
@@ -211,11 +231,6 @@
                         <div>List Notifikasi</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
-                    <a href="#" class="menu-link {{ Request::is('dashboard') ? 'active' : '' }}">
-                        <div>Otor Notifikasi</div>
-                    </a>
-                </li>
             </ul>
         </li>
 
@@ -254,6 +269,13 @@
             <a href="#" class="menu-link">
                 <i class="menu-icon tf-icons ti ti-report-off"></i>
                 <div>Penolakan Kredit</div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ Request::is('') ? 'active' : '' }}">
+            <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-checklist"></i>
+                <div>Pemberkasan</div>
             </a>
         </li>
 
