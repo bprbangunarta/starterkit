@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
         DB::beginTransaction();
 
         try {
-            $admin = User::create(array_merge([
+            $admin1 = User::create(array_merge([
                 'name'      => 'Zulfadli Rizal',
                 'username'  => 'zulfame',
                 'phone'     => '6282320099971',
@@ -33,8 +33,24 @@ class UserSeeder extends Seeder
                 'is_active' => '1',
             ], $default_user_value));
 
+            $admin2 = User::create(array_merge([
+                'name'      => 'Apip',
+                'username'  => 'apip',
+                'phone'     => '6285221561458',
+                'email'     => 'apipsasa7@gmail.com',
+                'is_active' => '1',
+            ], $default_user_value));
+
+            $admin3 = User::create(array_merge([
+                'name'      => 'Yandi Rosyandi',
+                'username'  => 'yandi',
+                'phone'     => '6281242758273',
+                'email'     => 'yandiyandhi1294@gmail.com',
+                'is_active' => '1',
+            ], $default_user_value));
+
             $guest = User::create(array_merge([
-                'name'      => 'Mutia Wahida Rahmi',
+                'name'      => 'Guest',
                 'username'  => 'guest',
                 'phone'     => '628112051232',
                 'email'     => 'guest@gmail.com',
@@ -44,7 +60,9 @@ class UserSeeder extends Seeder
             Role::create(['name' => 'Administrator']);
             Role::create(['name' => 'Guest']);
 
-            $admin->assignRole('Administrator');
+            $admin1->assignRole('Administrator');
+            $admin2->assignRole('Administrator');
+            $admin3->assignRole('Administrator');
             $guest->assignRole('Guest');
 
             DB::commit();
