@@ -47,7 +47,7 @@ export default function Offices({ offices, filters }: Props) {
             <Head title="Data Kantor" />
             <PageHeader
                 title="Data Kantor"
-                description="Kantor BPR beserta alamat dan koordinatnya"
+                description="Kantor beserta alamat dan koordinatnya"
                 actions={
                     <Button onClick={() => confirmed(() => setEditing(null))}>
                         <Plus /> Tambah

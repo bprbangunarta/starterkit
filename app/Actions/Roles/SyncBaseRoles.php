@@ -13,7 +13,7 @@ class SyncBaseRoles
     public function __construct(private readonly PermissionRegistrar $registrar) {}
 
     /**
-     * Safe to run on every deploy: only roles that do not exist yet are created.
+     * Safe to run again: only roles that do not exist yet are created.
      *
      * @return list<string> The roles this run created.
      */

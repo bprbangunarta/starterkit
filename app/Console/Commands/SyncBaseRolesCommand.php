@@ -19,7 +19,7 @@ class SyncBaseRolesCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create the base roles (Super Admin, Guest) that do not exist yet. Safe to run on every deploy.';
+    protected $description = 'Create the base roles (Super Admin, Guest) that do not exist yet. Safe to run again.';
 
     public function handle(SyncBaseRoles $syncBaseRoles): int
     {

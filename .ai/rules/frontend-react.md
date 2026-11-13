@@ -188,7 +188,7 @@ Ganti warna utama dengan mengubah token `--color-primary` dan turunannya di `res
 | Token | Nilai | Dipakai untuk |
 |---|---|---|
 | `--font-sans` | Instrument Sans, lalu font sistem | seluruh teks |
-| `--color-primary` / `-hover` / `-soft` | `oklch(0.386 0.092 243.4)` (biru logo `#034871`) / `oklch(0.34 0.09 243.4)` / `oklch(0.96 0.015 243.4)` | tombol utama, tautan, menu aktif, fokus / disorot / latar lembut (menu aktif, area tarik berkas) |
+| `--color-primary` / `-hover` / `-soft` | `oklch(0.51 0.086 186)` (teal `#0f766e`) / `oklch(0.46 0.086 186)` / `oklch(0.96 0.02 186)` | tombol utama, tautan, menu aktif, fokus / disorot / latar lembut (menu aktif, area tarik berkas) |
 | `--color-on-primary` | `#ffffff` | teks dan ikon di atas isian primary atau danger (tombol, centang, lencana): **bukan** `text-white` |
 | `--color-surface` | `#ffffff` | kartu, sidebar, header, dialog, dropdown |
 | `--color-canvas` | `oklch(0.975 0.003 260)` | latar halaman, header tabel, hover |
@@ -211,7 +211,7 @@ Ganti warna utama dengan mengubah token `--color-primary` dan turunannya di `res
 
 **Tema gelap.** Nama token sama; nilai gelapnya ada di `resources/css/app.css` (blok `:root[data-theme='dark']` dan salinannya di `@media (prefers-color-scheme: dark)`, harus identik **[tes]**).
 Bawaannya mengikuti sistem; `lib/theme.ts` menyimpan pilihan Terang, Gelap, atau Ikuti sistem (preferensi, bukan rahasia, jadi satu-satunya pengecualian aturan `localStorage`) dan `public/theme-init.js`
-menerapkannya sebelum halaman tergambar (skrip biasa, dimuat dari `resources/views/app.blade.php` sebelum `@vite`). Nilai gelap primary memakai rona biru logo (243,4), bukan rona template. Aturan menulis tampilan:
+menerapkannya sebelum halaman tergambar (skrip biasa, dimuat dari `resources/views/app.blade.php` sebelum `@vite`). Nilai gelap primary memakai rona teal proyek (186), bukan rona template. Aturan menulis tampilan:
 
 - hanya token (tak ada warna tertulis, tak ada `text-white` atau `bg-white` untuk UI);
 - isian solid primary atau danger memakai `text-on-primary`; tooltip `bg-ink text-surface`;

@@ -18,10 +18,10 @@
                     <table role="presentation" width="520" cellpadding="0" cellspacing="0" style="width:100%;max-width:520px;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #dfe3ec;">
                         {{-- Brand bar --}}
                         <tr>
-                            <td style="background:#034871;padding:20px 28px;">
+                            <td style="background:#0f766e;padding:20px 28px;">
                                 <table role="presentation" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td style="width:36px;height:36px;background:#ffffff;border-radius:8px;text-align:center;font-size:18px;font-weight:700;color:#034871;line-height:36px;">S</td>
+                                        <td style="width:36px;height:36px;background:#ffffff;border-radius:8px;text-align:center;font-size:18px;font-weight:700;color:#0f766e;line-height:36px;">S</td>
                                         <td style="padding-left:12px;font-size:18px;font-weight:700;color:#ffffff;letter-spacing:.3px;">{{ config('app.name') }}</td>
                                     </tr>
                                 </table>
@@ -31,7 +31,7 @@
                         {{-- Message --}}
                         <tr>
                             <td style="padding:32px 28px 8px;">
-                                <p style="margin:0 0 6px;font-size:13px;font-weight:600;color:#034871;text-transform:uppercase;letter-spacing:1px;">Verifikasi dua langkah</p>
+                                <p style="margin:0 0 6px;font-size:13px;font-weight:600;color:#0f766e;text-transform:uppercase;letter-spacing:1px;">Verifikasi dua langkah</p>
                                 <h1 style="margin:0 0 14px;font-size:22px;line-height:1.3;font-weight:700;color:#1f2430;">Kode verifikasi Anda</h1>
                                 <p style="margin:0;font-size:15px;line-height:1.6;color:#4b5263;">
                                     Halo{{ $name ? ' '.$name : '' }}, masukkan kode berikut untuk melanjutkan.
@@ -63,7 +63,7 @@
                                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fff8e6;border:1px solid #f3dfa2;border-radius:8px;">
                                     <tr>
                                         <td style="padding:14px 16px;font-size:13px;line-height:1.6;color:#6a5416;">
-                                            <strong>Jangan bagikan kode ini</strong> kepada siapa pun, termasuk petugas bank atau tim IT. Kami tidak pernah memintanya.
+                                            <strong>Jangan bagikan kode ini</strong> kepada siapa pun, termasuk petugas atau tim IT. Kami tidak pernah memintanya.
                                         </td>
                                     </tr>
                                 </table>

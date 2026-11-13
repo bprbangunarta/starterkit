@@ -14,7 +14,7 @@ const escapeHtml = (text: string): string =>
 export type Source = { brand: string; theme: string; appName?: string };
 
 export function buildErrorPages({ brand, theme, appName }: Source): { file: string; html: string }[] {
-    const rawApp = appName ?? /APP_NAME = '(.*)'/.exec(brand)?.[1] ?? 'SIPEBRI';
+    const rawApp = appName ?? /APP_NAME = '(.*)'/.exec(brand)?.[1] ?? 'STARTERKIT';
     const app = escapeHtml(rawApp);
     const logo = escapeHtml(/APP_LOGO = '(.*)'/.exec(brand)?.[1] ?? '/logo.png');
     // Every light colour token of the theme becomes a variable of the page, under the same name the illustrations use.

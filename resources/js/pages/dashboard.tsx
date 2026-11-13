@@ -9,9 +9,9 @@ export default function Dashboard() {
     return (
         <>
             <Head title="Dashboard" />
-            <PageHeader title="Dashboard" description="Ringkasan pengajuan kredit akan tampil di sini" />
+            <PageHeader title="Dashboard" description="Ringkasan akan tampil di sini" />
             <Card>
-                <EmptyState icon={<LayoutDashboard />} title="Belum ada data" description="Ringkasan muncul setelah fitur pengajuan kredit dibuat." />
+                <EmptyState icon={<LayoutDashboard />} title="Belum ada data" description="Ringkasan muncul setelah fitur pertama dibuat." />
             </Card>
         </>
     );

@@ -11,9 +11,9 @@
         'Instrument Sans Variable', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
         'Noto Color Emoji';
 
-    --color-primary: oklch(0.386 0.092 243.4);
-    --color-primary-hover: oklch(0.34 0.09 243.4);
-    --color-primary-soft: oklch(0.96 0.015 243.4);
+    --color-primary: oklch(0.51 0.086 186);
+    --color-primary-hover: oklch(0.46 0.086 186);
+    --color-primary-soft: oklch(0.96 0.02 186);
     --color-surface: #ffffff;
     /* Text and icons on a solid primary, danger or success fill (buttons, badges, checked boxes). */
     --color-on-primary: #ffffff;
@@ -47,7 +47,7 @@
      * Chart series colours: five hues of about equal weight, each at least 3:1 against the surface (a test checks it).
      * They carry no status meaning; the number beside each part says what it is.
      */
-    --color-chart-1: oklch(0.386 0.092 243.4);
+    --color-chart-1: oklch(0.51 0.086 186);
     --color-chart-2: oklch(0.58 0.1 195);
     --color-chart-3: oklch(0.62 0.14 75);
     --color-chart-4: oklch(0.52 0.14 330);
@@ -69,9 +69,9 @@
 :root[data-theme='dark'] {
     color-scheme: dark;
     /* dark:start */
-    --color-primary: oklch(0.72 0.14 243.4);
-    --color-primary-hover: oklch(0.78 0.13 243.4);
-    --color-primary-soft: oklch(0.28 0.06 243.4);
+    --color-primary: oklch(0.72 0.086 186);
+    --color-primary-hover: oklch(0.78 0.086 186);
+    --color-primary-soft: oklch(0.28 0.06 186);
     --color-surface: oklch(0.21 0.015 265);
     --color-on-primary: oklch(0.18 0.02 265);
     --color-canvas: oklch(0.17 0.012 265);
@@ -94,7 +94,7 @@
     --color-info-soft: oklch(0.27 0.04 250);
     --color-info-line: oklch(0.4 0.07 250);
     --color-info-ink: oklch(0.85 0.09 250);
-    --color-chart-1: oklch(0.72 0.14 243.4);
+    --color-chart-1: oklch(0.72 0.086 186);
     --color-chart-2: oklch(0.74 0.1 195);
     --color-chart-3: oklch(0.78 0.14 75);
     --color-chart-4: oklch(0.72 0.14 330);
@@ -104,9 +104,9 @@
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme='light']) {
         color-scheme: dark;
-        --color-primary: oklch(0.72 0.14 243.4);
-        --color-primary-hover: oklch(0.78 0.13 243.4);
-        --color-primary-soft: oklch(0.28 0.06 243.4);
+        --color-primary: oklch(0.72 0.086 186);
+        --color-primary-hover: oklch(0.78 0.086 186);
+        --color-primary-soft: oklch(0.28 0.06 186);
         --color-surface: oklch(0.21 0.015 265);
         --color-on-primary: oklch(0.18 0.02 265);
         --color-canvas: oklch(0.17 0.012 265);
@@ -129,7 +129,7 @@
         --color-info-soft: oklch(0.27 0.04 250);
         --color-info-line: oklch(0.4 0.07 250);
         --color-info-ink: oklch(0.85 0.09 250);
-        --color-chart-1: oklch(0.72 0.14 243.4);
+        --color-chart-1: oklch(0.72 0.086 186);
         --color-chart-2: oklch(0.74 0.1 195);
         --color-chart-3: oklch(0.78 0.14 75);
         --color-chart-4: oklch(0.72 0.14 330);

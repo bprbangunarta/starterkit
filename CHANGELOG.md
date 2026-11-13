@@ -21,7 +21,7 @@ Format changelog mengikuti prinsip [Keep a Changelog](https://keepachangelog.com
 - Isian alasan saat menambah pengguna berperan berlabel "Alasan pemberian peran".
 
 ### Added
-- Salinan SIPEBRI sebagai starterkit di Laravel 13 dengan SQLite (D-0045). Tes `DatabaseIntegrityTest` dan `LoginTest` disesuaikan untuk SQLite dan Laravel 13.
+- Starterkit di Laravel 13 dengan SQLite (D-0045), merek STARTERKIT (D-0046), `.env.example` yang ditata ulang, dan README untuk starterkit. Tes `DatabaseIntegrityTest` dan `LoginTest` disesuaikan untuk SQLite dan Laravel 13.
 - Semua jawaban aplikasi, halaman error termasuk, membawa header keamanan (`nosniff`, `Referrer-Policy`, CSP `frame-ancestors`); jawaban untuk orang yang sudah masuk juga `no-store`. Aplikasi hanya menjawab host dari `APP_URL`, jadi `APP_URL` harus alamat sebenarnya. Batas label menu jadi 20 karakter.
 - Penyimpanan Lokal (folder `storage/app/private` proyek) tampil di menu Penyimpanan, bisa dilihat di pengelola berkas, diberi nama, dan diuji. Menu Pengaturan kini berisi nama aplikasi, meta deskripsi, pilihan penyimpanan aktif (hanya yang lulus uji koneksi), serta logo dan favicon yang bisa diunggah dan dikembalikan ke bawaan; nama, deskripsi, logo, dan favicon dipakai judul tab, header, dan halaman masuk. Penyimpanan aktif diberi lencana "Aktif" di daftar.
 - Menu Pengaturan (`/settings`) di bawah Penyimpanan, untuk Super Admin; halamannya masih placeholder.
@@ -58,8 +58,8 @@ Format changelog mengikuti prinsip [Keep a Changelog](https://keepachangelog.com
 - Kata sandi minimal 8 karakter (sebelumnya 15). Judul kartu dan modal diawali huruf kapital. Tombol Export dan Tambah memakai warna primary, dan Export menjelaskan bahwa semua baris sesuai filter yang diekspor.
 - Peranan yang masih dipegang pengguna kini ditolak penghapusannya juga oleh database (migrasi `model_has_roles.role_id` menjadi RESTRICT); pengguna baru tidak lagi diberi kata sandi lewat formulir.
 - Audit Logs dan ekspornya kini hanya untuk Super Admin (sebelumnya semua yang login); menu itu disembunyikan dari yang lain.
-- Test PHP berjalan di MySQL (`bpr_sipebri_test`), bukan SQLite.
-- Antarmuka memakai logo bundar BPR dan warna biru logo sebagai warna utama, menggantikan huruf "S" dan biru-ungu bawaan starter.
+- Test PHP berjalan di SQLite dalam memori.
+- Antarmuka memakai logo bundar dan warna utama teal sebagai bawaan, menggantikan huruf "S" dan biru-ungu bawaan starter.
 - `dashboard` dan `ui-guideline` kini hanya untuk pengguna yang sudah masuk.
 - Umur sesi tidak aktif bawaan turun dari 120 ke 15 menit.
 - Vite naik ke 8 dan `laravel-vite-plugin` ke 3.

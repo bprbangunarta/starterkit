@@ -22,7 +22,7 @@ function adminOnSettingsPage(): User
 /** @return array<string, string> */
 function settingsValues(array $overrides = []): array
 {
-    return ['app_name' => 'SIPEBRI Pusat', 'meta_description' => 'Sistem pengajuan kredit.', 'active_storage' => 'local', ...$overrides];
+    return ['app_name' => 'STARTERKIT Dua', 'meta_description' => 'Kerangka aplikasi Laravel.', 'active_storage' => 'local', ...$overrides];
 }
 
 test('guests are sent to the login page and a user without the Super Admin role is refused', function () {
@@ -59,8 +59,8 @@ test('saving changes the name and description that every page shows, and is reco
 
     $this->patch(route('settings.update'), settingsValues())->assertRedirect();
 
-    expect(app(ProjectSettings::class)->appName())->toBe('SIPEBRI Pusat');
-    $this->get(route('settings'))->assertSee('SIPEBRI Pusat</title>', false)->assertSee('<meta name="description" content="Sistem pengajuan kredit.">', false);
+    expect(app(ProjectSettings::class)->appName())->toBe('STARTERKIT Dua');
+    $this->get(route('settings'))->assertSee('STARTERKIT Dua</title>', false)->assertSee('<meta name="description" content="Kerangka aplikasi Laravel.">', false);
     expect(AuditActivity::query()->where('log_name', 'Pengaturan')->count())->toBeGreaterThanOrEqual(2);
 });
 

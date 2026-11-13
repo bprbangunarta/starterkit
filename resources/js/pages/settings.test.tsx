@@ -35,7 +35,7 @@ const images = {
     logo: { url: '/logo.png', custom: false, mimes: ['png', 'jpg'], max_kb: 512 },
     favicon: { url: '/brand/favicon?v=abc', custom: true, mimes: ['png', 'ico'], max_kb: 128 },
 };
-const settings = { app_name: 'SIPEBRI', meta_description: '', active_storage: 'local' };
+const settings = { app_name: 'STARTERKIT', meta_description: '', active_storage: 'local' };
 const storages = [
     { value: 'local', label: 'Lokal' },
     { value: 's3', label: 'Arsip Kantor' },
@@ -58,7 +58,7 @@ describe('Settings page', () => {
             </TooltipProvider>,
         );
 
-        expect(screen.getByLabelText(/Nama aplikasi/)).toHaveValue('SIPEBRI');
+        expect(screen.getByLabelText(/Nama aplikasi/)).toHaveValue('STARTERKIT');
         expect(screen.getByRole('radio', { name: 'Lokal' })).toBeChecked();
         expect(screen.getByRole('radio', { name: 'Arsip Kantor' })).not.toBeChecked();
         expect(screen.getByText('Penyimpanan ini belum bisa dipakai.')).toBeInTheDocument();
@@ -73,13 +73,13 @@ describe('Settings page', () => {
         );
 
         await user.clear(screen.getByLabelText(/Nama aplikasi/));
-        await user.type(screen.getByLabelText(/Nama aplikasi/), 'SIPEBRI Pusat');
+        await user.type(screen.getByLabelText(/Nama aplikasi/), 'STARTERKIT Dua');
         await user.click(screen.getByRole('radio', { name: 'Arsip Kantor' }));
         await user.click(screen.getByRole('button', { name: 'Simpan' }));
 
         expect(inertia.patch).toHaveBeenCalledWith(
             '/settings',
-            { app_name: 'SIPEBRI Pusat', meta_description: '', active_storage: 's3' },
+            { app_name: 'STARTERKIT Dua', meta_description: '', active_storage: 's3' },
             expect.objectContaining({ preserveScroll: true }),
         );
     });

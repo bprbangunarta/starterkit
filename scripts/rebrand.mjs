@@ -69,6 +69,8 @@ if (color) {
     css = setToken(css, 'primary', oklch(L, C, H), oklch(0.72, Math.min(C, 0.14), H));
     css = setToken(css, 'primary-hover', oklch(Math.max(L - 0.05, 0), C, H), oklch(0.78, Math.min(C, 0.13), H));
     css = setToken(css, 'primary-soft', oklch(0.96, Math.min(C, 0.02), H), oklch(0.28, Math.min(C, 0.06), H));
+    // The first chart series is the brand colour too.
+    css = setToken(css, 'chart-1', oklch(L, C, H), oklch(0.72, Math.min(C, 0.14), H));
     write('resources/css/app.css', css);
     done(`warna utama ${color} -> token primary di resources/css/app.css`);
 

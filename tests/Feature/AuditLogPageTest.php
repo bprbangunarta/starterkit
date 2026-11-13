@@ -94,9 +94,9 @@ test('the list can be filtered by a date range that includes both end days', fun
 
 test('the search matches part of a description and treats % and _ literally', function () {
     signedInOnAuditPage();
-    recordAuditEntry('Diskon 50% disetujui', module: 'Kredit');
-    recordAuditEntry('Kode a_b dipakai', module: 'Kredit');
-    recordAuditEntry('Masuk biasa', module: 'Kredit');
+    recordAuditEntry('Diskon 50% disetujui', module: 'Laporan');
+    recordAuditEntry('Kode a_b dipakai', module: 'Laporan');
+    recordAuditEntry('Masuk biasa', module: 'Laporan');
 
     $this->get(route('audit-logs', ['search' => 'disetujui']))
         ->assertInertia(fn (AssertableInertia $page) => $page->has('logs.data', 1));
@@ -109,7 +109,7 @@ test('the search matches part of a description and treats % and _ literally', fu
 test('the search also matches the actor, the module, and the IP address', function () {
     signedInOnAuditPage();
     $actor = User::factory()->create(['name' => 'Rina Wulandari', 'username' => 'rina.w']);
-    recordAuditEntry('Oleh Rina', causer: $actor, module: 'Kredit');
+    recordAuditEntry('Oleh Rina', causer: $actor, module: 'Laporan');
     insertAuditRow('Dari luar', ['ip_address' => '203.0.113.9', 'log_name' => 'Jaringan']);
     recordAuditEntry('Lain', module: 'Gudang');
 

@@ -12,7 +12,7 @@ class AssertHostAllowed
 
     /**
      * Why a host typed on the screen may not be used, or null when it may. A host must resolve to public addresses only, unless it is
-     * in `storage_connections.allowed_hosts` (an internal server the bank runs on purpose).
+     * in `storage_connections.allowed_hosts` (an internal server the organization runs on purpose).
      */
     public function refusal(string $host): ?string
     {

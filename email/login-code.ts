@@ -25,7 +25,7 @@ const escape = (value: string): string => value.replace(/&/g, '&amp;').replace(/
 export function renderLoginCodeEmail(input: LoginCodeEmail): { subject: string; html: string; text: string } {
     const { appName, code, minutes, sentAt } = input;
     const company = input.company ?? appName;
-    const brand = input.brandColor ?? '#034871';
+    const brand = input.brandColor ?? '#0f766e';
     const greeting = input.name ? ` ${escape(input.name)}` : '';
     const digits = [...code]
         .map(
@@ -90,7 +90,7 @@ export function renderLoginCodeEmail(input: LoginCodeEmail): { subject: string; 
                                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fff8e6;border:1px solid #f3dfa2;border-radius:8px;">
                                     <tr>
                                         <td style="padding:14px 16px;font-size:13px;line-height:1.6;color:#6a5416;">
-                                            <strong>Jangan bagikan kode ini</strong> kepada siapa pun, termasuk petugas bank atau tim IT. Kami tidak pernah memintanya.
+                                            <strong>Jangan bagikan kode ini</strong> kepada siapa pun, termasuk petugas atau tim IT. Kami tidak pernah memintanya.
                                         </td>
                                     </tr>
                                 </table>
@@ -126,7 +126,7 @@ Kode verifikasi Anda:
 Kode berlaku ${minutes} menit dan hanya bisa dipakai sekali.
 Dikirim pada ${sentAt}.
 
-JANGAN BAGIKAN KODE INI kepada siapa pun, termasuk petugas bank atau tim IT. Kami tidak pernah memintanya.
+JANGAN BAGIKAN KODE INI kepada siapa pun, termasuk petugas atau tim IT. Kami tidak pernah memintanya.
 
 Bila bukan Anda yang mencoba masuk atau mengubah pengaturan keamanan, abaikan email ini dan segera beri tahu administrator.
 

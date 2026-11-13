@@ -47,7 +47,7 @@ Format entri:
 - Diputuskan oleh: standar boosts-guidelines, diadopsi oleh pemilik proyek
 - Keputusan: Aplikasi yang menyimpan data sensitif memakai idle timeout 15 menit dan umur sesi maksimal 12 jam. Aplikasi lain boleh melonggarkan dengan entri keputusan tersendiri.
 - Alasan: Membatasi dampak sesi yang tertinggal terbuka atau dicuri.
-- Dampak untuk proyek ini: `SESSION_LIFETIME=120` (120 menit) di `.env.example`, belum sesuai idle timeout 15 menit, dan umur maksimal 12 jam belum diatur. Aplikasi menyimpan data debitur kredit (sensitif). Penyesuaian dilakukan saat fitur login dibuat.
+- Dampak untuk proyek ini: `SESSION_LIFETIME=120` (120 menit) di `.env.example`, belum sesuai idle timeout 15 menit, dan umur maksimal 12 jam belum diatur. Aplikasi menyimpan data sensitif. Penyesuaian dilakukan saat fitur login dibuat.
 - Tinjau ulang: 2027-05-11
 
 ## D-0004: 2FA wajib untuk akun berhak istimewa
@@ -77,7 +77,7 @@ Format entri:
 - Diputuskan oleh: standar boosts-guidelines, diadopsi oleh pemilik proyek
 - Keputusan: Jejak audit tidak wajib secara default. Proyek yang membutuhkannya menambahkan entri keputusan beserta alat yang dipakai, lalu mengikuti `.ai/rules/audit.md`.
 - Alasan: Jejak audit penuh butuh paket baru atau sistem sendiri, dan kebutuhannya bergantung pada jenis aplikasi.
-- Dampak untuk proyek ini: `spatie/laravel-activitylog` sudah terpasang dan `ACTIVITYLOG_ENABLED=true`, jadi jejak audit tersedia, tetapi belum dipakai di model mana pun. Aplikasi kredit kemungkinan membutuhkannya, perlu entri keputusan tersendiri saat fitur pertama dibuat.
+- Dampak untuk proyek ini: `spatie/laravel-activitylog` sudah terpasang dan `ACTIVITYLOG_ENABLED=true`, jadi jejak audit tersedia, tetapi belum dipakai di model mana pun. Aplikasi bisnis kemungkinan membutuhkannya, perlu entri keputusan tersendiri saat fitur pertama dibuat.
 - Tinjau ulang: 2027-05-11
 
 ## D-0007: Batas ukuran kode sebagai pedoman
@@ -117,7 +117,7 @@ Format entri:
 - Diputuskan oleh: standar boosts-guidelines, diadopsi oleh pemilik proyek
 - Keputusan: ID yang terlihat di URL atau API memakai ULID sebagai route key, atau setiap pencarian record selalu dibatasi per pemilik.
 - Alasan: ID berurutan memudahkan pihak luar menebak dan mencoba mengakses data orang lain.
-- Dampak untuk proyek ini: Tabel `users` memakai ID berurutan. Model domain kredit belum ada. Saat dibuat, pakai ULID sebagai route key atau batasi pencarian per pemilik.
+- Dampak untuk proyek ini: Tabel `users` memakai ID berurutan. Model domain belum ada. Saat dibuat, pakai ULID sebagai route key atau batasi pencarian per pemilik.
 - Tinjau ulang: 2027-05-11
 
 ## D-0011: Pest 4 dan PHPUnit 12 selama proyek di Laravel 12
@@ -167,7 +167,7 @@ Format entri:
 - Diputuskan oleh: Zulfadli Rizal (pemilik), menyetujui semua rekomendasi agent di percakapan 2026-11-11
 - Keputusan: Dari react-starter dipindahkan `components/ui`, komponen umum (avatar, brand-mark, error-boundary, error-page, illustrations, network-status, auth-layout), `lib` murni (utils, format, mask, password, brand, error-pages), token di `resources/css/app.css`, halaman `ui-guideline`, aturan `STANDARDS.md` (menjadi `.ai/rules/frontend-react.md`), pemeriksa `scripts/check-standards.mjs`, serta konfigurasi ESLint, Prettier, dan Vitest. Dibuat ulang untuk Inertia: layout, menu (Wayfinder), dashboard, dan test penamaan menu. Tidak dipindahkan: `react-router`, `lib/http`, `lib/form`, `lib/resource`, `mock/`, `auth/session`, halaman login, MFA, profil, audit log, dan komponen yang bergantung pada API starter (avatar-editor, idle-timeout, maintenance-gate, notification-bell, reauth-dialog, password-fields). Itu dibuat saat fitur autentikasi dikerjakan dengan controller Laravel.
 - Alasan: Komponen UI, token, dan aturan tidak bergantung pada API tiruan, sedangkan layar yang bergantung padanya baru bermakna setelah backend nyata ada, dan menyalinnya sekarang berarti membawa data tiruan ke kode aplikasi (dilarang `production-standards.md`).
-- Dampak untuk proyek ini: `npm run check` (typecheck, lint, format, standar, test) menjadi pemeriksaan frontend di Stop gate. Merek masih bawaan starter (huruf "S", warna utama biru `oklch(0.45 0.16 265)`), karena aset merek BPR belum ditetapkan. `public/` sudah memuat `logo.png` dan `logo_full_*.webp`. `dashboard` dan `ui-guideline` masih publik karena belum ada login, dan harus masuk grup `auth` saat login dibuat. Override `minimatch` ^11 di `package.json` menutup temuan `npm audit` (ReDoS, hanya alat lint) di `@typescript-eslint/typescript-estree`.
+- Dampak untuk proyek ini: `npm run check` (typecheck, lint, format, standar, test) menjadi pemeriksaan frontend di Stop gate. Merek diganti lewat `npm run rebrand`. `dashboard` dan `ui-guideline` masih publik karena belum ada login, dan harus masuk grup `auth` saat login dibuat. Override `minimatch` ^11 di `package.json` menutup temuan `npm audit` (ReDoS, hanya alat lint) di `@typescript-eslint/typescript-estree`.
 - Tinjau ulang: saat fitur autentikasi dikerjakan
 
 ## D-0016: Pengecualian batas 80 baris per fungsi untuk tiga komponen template
@@ -281,16 +281,15 @@ Format entri:
 - Dampak untuk proyek ini: setiap pengguna login bisa memindahkan seluruh isi audit (termasuk alamat IP semua orang) ke berkas. Ada TODO di `routes/web.php`.
 - Tinjau ulang: saat tahap permission, atau sebelum ada pengguna selain tim pengembang
 
-## D-0027: Warna utama antarmuka diambil dari logo
+## D-0027: Warna utama antarmuka dari satu token
 
 - Tanggal: 2026-11-11
 - Status: berlaku
 - Diputuskan oleh: Zulfadli Rizal (pemilik), mengikuti rekomendasi agent di percakapan 2026-11-11
-- Keputusan: Warna utama antarmuka adalah biru tua dari `public/logo.png` (`#034871`, `oklch(0.386 0.092 243.4)`), menggantikan biru-ungu bawaan starter. Cokelat (`#948067`) dan hijau (`#84c81b`) logo belum dipakai.
-- Alasan: aset merek BPR sudah ada di `public/`. Nilai warna dibaca dari piksel logo, belum ditetapkan resmi oleh pemilik atau bagian pemasaran.
-- Dampak untuk proyek ini: tombol, tautan, menu aktif, dan fokus kini biru logo. Bila warna resmi berbeda, cukup ubah tiga token di `resources/css/app.css` dan tabel token di `.ai/rules/frontend-react.md`.
-- Tinjau ulang: saat pemilik memastikan warna resmi
-
+- Keputusan: Warna utama antarmuka adalah satu keluarga token (`--color-primary`, `-hover`, `-soft`, terang dan gelap) di `resources/css/app.css`, dan `npm run rebrand -- --color "#rrggbb"` mengubah semuanya sekaligus. Bawaan starterkit adalah teal `#0f766e` (`oklch(0.51 0.086 186)`).
+- Alasan: satu tempat untuk warna merek membuat proyek turunan bisa berganti merek tanpa menyentuh komponen.
+- Dampak untuk proyek ini: tombol, tautan, menu aktif, dan fokus mengikuti token. Tabel token di `.ai/rules/frontend-react.md` ikut diperbarui bila warna berubah.
+- Tinjau ulang: saat merek proyek turunan ditetapkan
 ## D-0028: Pengguna dan Peranan terbuka untuk semua yang login
 
 - Tanggal: 2026-11-11
@@ -368,8 +367,8 @@ Format entri:
 - Diputuskan oleh: Zulfadli Rizal (pemilik), di percakapan 2026-11-12 ("karyawan punya kontrak dengan perusahaan dan penggunaan datanya diperbolehkan", dan audit log hanya dilihat Super Admin)
 - Keputusan: Nilai sebelum dan sesudah `name` dan `email` pengguna disimpan apa adanya di audit logs. Hanya `password` (kredensial, hash saja) yang tetap ditandai berubah tanpa nilai (`[disembunyikan]`). Ini menyimpang dari `audit.md` ("data pribadi hanya ditandai berubah") dan `security.md` ("data pribadi tidak pernah masuk ke log"), khusus untuk jejak audit; log aplikasi (`Log::`) tetap merujuk orang dengan ID.
 - Alasan: audit yang menyamarkan nama dan email tidak bisa menjawab siapa mengubah apa menjadi apa; pemilik menyatakan penggunaan data karyawan diizinkan oleh kontrak, dan hanya Super Admin yang dapat membuka audit logs (D-0029).
-- Dampak untuk proyek ini: entri lama yang sudah menulis `[disembunyikan]` untuk nama dan email tetap begitu (log hanya bisa ditambah). Data debitur nanti (fitur bisnis) tidak otomatis ikut keputusan ini; keputusannya perlu dari pemilik per jenis data. Kolom sensitif lain (nomor identitas, data pembayaran) tetap dilindungi sesuai `security.md`. Ekspor audit tidak memuat nilai sebelum dan sesudah, hanya nama pelaku di kolom Pengguna.
-- Tinjau ulang: saat data debitur ditambahkan, atau bila akses audit logs dibuka untuk peran selain Super Admin
+- Dampak untuk proyek ini: entri lama yang sudah menulis `[disembunyikan]` untuk nama dan email tetap begitu (log hanya bisa ditambah). Data bisnis nanti tidak otomatis ikut keputusan ini; keputusannya perlu dari pemilik per jenis data. Kolom sensitif lain (nomor identitas, data pembayaran) tetap dilindungi sesuai `security.md`. Ekspor audit tidak memuat nilai sebelum dan sesudah, hanya nama pelaku di kolom Pengguna.
+- Tinjau ulang: saat data bisnis ditambahkan, atau bila akses audit logs dibuka untuk peran selain Super Admin
 
 ## D-0036: Label grup menu "Kelola Referensi" (16 karakter)
 
@@ -409,7 +408,7 @@ Format entri:
 - Keputusan: tiga paket `devDependencies` ditambahkan, hanya untuk pengembangan dan CI, tidak ikut ke production: `vitest-axe` 0.1 (pemeriksaan aksesibilitas otomatis di Vitest), `@playwright/test` 1.65 (tes ujung ke ujung), dan `tsx` 4.23 (menjalankan skrip pembuat halaman error).
 - Alasan: template react-starter memakainya untuk tes aksesibilitas, tes ujung ke ujung, dan pembuatan halaman error statis, dan pemilik meminta seluruh template diadopsi.
 - Pemeriksaan paket (security.md): nama persis ada di npm; lisensi MIT (`vitest-axe`, `tsx`) dan Apache-2.0 (`@playwright/test`, Microsoft); rilis terakhir `vitest-axe` 2025-01-22 (di bawah 24 bulan), `@playwright/test` 2026-11-12, `tsx` 2026-09-20; `npm audit` 0 temuan setelah dipasang. `@playwright/test` tidak mengunduh peramban sendiri; peramban diunduh terpisah lewat `npx playwright install` (ukuran ratusan MB, dijalankan pemilik atau CI).
-- Dampak untuk proyek ini: `package.json` dan `package-lock.json` berubah; tes ujung ke ujung memakai database uji `bpr_sipebri_test` (migrasi dan seed akun demo, tidak menghapus apa pun).
+- Dampak untuk proyek ini: `package.json` dan `package-lock.json` berubah; tes ujung ke ujung memakai berkas SQLite sendiri (migrasi dan seed akun demo, tidak menghapus apa pun).
 - Tinjau ulang: saat ada temuan `npm audit` atau paket tidak dipelihara lagi
 
 ## D-0040: Konfigurasi penyimpanan S3 dan SFTP dari layar
@@ -419,7 +418,7 @@ Format entri:
 - Diputuskan oleh: Zulfadli Rizal (pemilik), di percakapan 2026-11-14 ("ikut rekomendasi perbaikan" atas hasil review 2026-11-14)
 - Keputusan: (1) Ada satu konfigurasi per jenis penyimpanan (S3 dan SFTP). Bawaan dari `.env` berlaku sampai ada yang disimpan di layar Penyimpanan; setelah itu yang di layar dipakai, dan "Kembali ke bawaan" menghapusnya. (2) Nilai koneksi disimpan terenkripsi (cast `encrypted:array`, kunci `APP_KEY`), tidak pernah dikirim ke browser (hanya penanda sudah terisi dan empat karakter terakhir access key), dan di audit hanya ditandai berubah. Rahasia yang dikosongkan di form berarti tetap memakai yang tersimpan. (3) Uji koneksi memanggil sistem luar dengan batas 3 detik sambung dan 10 detik total, tanpa pengulangan, dan pesan galatnya dibersihkan dari nilai rahasia. (4) Karena host dan endpoint diisi dari layar, host harus menunjuk ke alamat publik; alamat internal (10.x, 192.168.x, 127.x, dan sejenisnya) ditolak kecuali host didaftarkan di `STORAGE_ALLOWED_HOSTS`, dan alamat metadata cloud (169.254.x) tidak pernah boleh. Nilai `.env` dianggap milik operator dan tidak diperiksa. (5) Semua perubahan memakai konfirmasi kata sandi (D-0033); uji koneksi dibatasi 10 per menit.
 - Alasan: permintaan pemilik (bawaan `.env`, layar menggantikan bila diisi, uji koneksi) dan aturan `security.md` untuk nilai yang diisi pengguna.
-- Dampak untuk proyek ini: MinIO atau SFTP di dalam jaringan bank perlu didaftarkan di `STORAGE_ALLOWED_HOSTS` agar bisa diisi dari layar (atau dipasang lewat `.env`). Pemeriksaan host memakai DNS saat disimpan dan saat diuji, jadi nama yang berubah arah sesudahnya (DNS rebinding) tidak tertangkap; risiko ini diterima untuk akses Super Admin saja. Setelah review 2026-11-14, rentang NAT64 (`64:ff9b::/96`) ditolak seperti alamat metadata, karena bisa memuat alamat IPv4 mana pun dalam bentuk IPv6. Berkas yang sudah tersimpan di penyimpanan lama tidak dipindahkan saat konfigurasi berganti.
+- Dampak untuk proyek ini: MinIO atau SFTP di dalam jaringan internal perlu didaftarkan di `STORAGE_ALLOWED_HOSTS` agar bisa diisi dari layar (atau dipasang lewat `.env`). Pemeriksaan host memakai DNS saat disimpan dan saat diuji, jadi nama yang berubah arah sesudahnya (DNS rebinding) tidak tertangkap; risiko ini diterima untuk akses Super Admin saja. Setelah review 2026-11-14, rentang NAT64 (`64:ff9b::/96`) ditolak seperti alamat metadata, karena bisa memuat alamat IPv4 mana pun dalam bentuk IPv6. Berkas yang sudah tersimpan di penyimpanan lama tidak dipindahkan saat konfigurasi berganti.
 - Tinjau ulang: saat pengelola berkas sungguhan dibuat
 
 ## D-0041: Aturan pengelola berkas penyimpanan
@@ -449,7 +448,7 @@ Format entri:
 - Diputuskan oleh: Zulfadli Rizal (pemilik), di percakapan 2026-11-13 ("Ya, ikut rekomendasi" atas tinjauan I-0039)
 - Keputusan: (1) Menu Penyimpanan menampilkan jenis Lokal, yaitu disk `local` Laravel (`storage/app/private`, tidak bisa dibuka dari web); disk `public` tidak ditampilkan. Lokal tidak punya pengaturan koneksi (tidak bisa diubah atau dikembalikan, route `PATCH` dan `DELETE /storage/{type}` hanya menerima S3 dan SFTP), tetapi bisa diberi nama, diuji, dan dibuka di pengelola berkas. (2) Tepat satu penyimpanan aktif tempat berkas proyek disimpan, dipilih di menu Pengaturan; bawaannya Lokal. Hanya penyimpanan yang lengkap dan lulus uji koneksi terakhir yang bisa dipilih (Lokal selalu bisa). (3) Pengaturan proyek disimpan di tabel `settings` (kunci dan nilai, kunci dari enum `SettingKey`), dibaca lewat cache satu peta (`ProjectSettings`) yang dihapus saat disimpan; nilai kosong berarti bawaan dari config atau berkas, jadi aplikasi jalan dengan tabel kosong. (4) Pengaturan: nama aplikasi, meta deskripsi, penyimpanan aktif, logo, dan favicon; nama dan deskripsi dipakai judul tab, tag `meta description`, dan header aplikasi. Logo (png, jpg, jpeg, webp, paling besar 512 KB) dan favicon (png, ico, paling besar 128 KB) diunggah ke penyimpanan aktif di folder `branding`, dengan nama acak baru tiap unggahan; SVG tidak diizinkan karena bisa menjalankan skrip. Gambar disajikan lewat rute publik `/brand/{logo|favicon}` (halaman masuk memakainya) dengan jenis isi dari ekstensi, `nosniff`, CSP `sandbox`, dan cache setahun karena alamatnya membawa versi; gambar yang tak bisa dibaca dijawab 404 dan halaman memakai gambar bawaan. Mengunggah atau mengembalikan gambar memakai konfirmasi kata sandi dan file lama dihapus. Halaman error statis dan email memakai nama bawaan dari build, karena dibuat tanpa server. (5) Menyimpan pengaturan memakai konfirmasi kata sandi (D-0033) dan tercatat di audit. (6) Lokal boleh menjadi penyimpanan aktif di production, tetapi aplikasi di lebih dari satu server butuh disk bersama (`runtime.md`); itu tanggung jawab operator.
 - Alasan: rekomendasi agent yang disetujui pemilik.
-- Dampak untuk proyek ini: berkas bank di disk lokal ikut di server aplikasi, jadi perlu dicadangkan bersama aplikasi. Setiap halaman membaca satu entri cache untuk nama aplikasi. Gambar yang diunggah ikut hilang bila penyimpanan aktifnya hilang; mengembalikan ke gambar bawaan selalu bisa.
+- Dampak untuk proyek ini: berkas proyek di disk lokal ikut di server aplikasi, jadi perlu dicadangkan bersama aplikasi. Setiap halaman membaca satu entri cache untuk nama aplikasi. Gambar yang diunggah ikut hilang bila penyimpanan aktifnya hilang; mengembalikan ke gambar bawaan selalu bisa.
 - Tinjau ulang: saat aplikasi dipasang di lebih dari satu server, atau saat fitur bisnis pertama mulai menyimpan berkas
 
 ## D-0044: Header keamanan dipasang oleh aplikasi lewat satu middleware
@@ -462,12 +461,22 @@ Format entri:
 - Dampak untuk proyek ini: halaman tidak bisa dibingkai situs lain, jenis isi tidak ditebak peramban, dan halaman untuk orang yang sudah masuk tidak disimpan cache. Tombol Kembali di peramban memuat ulang halaman itu dari server.
 - Tinjau ulang: bila `script-src` ingin ditambahkan
 
-## D-0045: Starterkit memakai SQLite dan Laravel 13
+## D-0045: SQLite dan Laravel 13
 
 - Tanggal: 2026-11-14
 - Status: berlaku
 - Diputuskan oleh: Zulfadli Rizal (pemilik), di percakapan 2026-11-14 ("untuk database gunakan saja sqlite tidak apa-apa ... semuanya ikut rekomendasi kamu")
-- Keputusan: salinan SIPEBRI ini adalah starterkit di atas Laravel 13. Database kerja SQLite (`database/database.sqlite`), tes PHP di SQLite dalam memori, dan tes ujung ke ujung di berkas `database/e2e.sqlite`. Ini menggantikan I-0015 (tes memakai MySQL) untuk starterkit; catatan lama tentang MySQL di dokumen lain adalah riwayat SIPEBRI. Tes yang bergantung pada MySQL (`information_schema`) ditulis ulang lewat Schema builder agar jalan di keduanya.
+- Keputusan: proyek ini berdiri di atas Laravel 13. Database kerja SQLite (`database/database.sqlite`), tes PHP di SQLite dalam memori, dan tes ujung ke ujung di berkas `database/e2e.sqlite`. Ini menggantikan I-0015 (tes memakai MySQL). Tes yang bergantung pada MySQL (`information_schema`) ditulis lewat Schema builder agar jalan di keduanya.
 - Alasan: permintaan pemilik; SQLite tidak butuh layanan terpisah untuk titik awal proyek baru.
 - Dampak untuk proyek ini: SQLite tidak menegakkan semua yang ditegakkan MySQL (misalnya kunci baris `lockForUpdate` hanya berarti di MySQL), jadi tes konkurensi tidak membuktikan perilaku MySQL. Proyek turunan yang memakai MySQL mengganti `DB_CONNECTION` dan `phpunit.xml`.
 - Tinjau ulang: bila proyek turunan memilih database lain
+
+## D-0046: Merek bawaan STARTERKIT
+
+- Tanggal: 2026-11-14
+- Status: berlaku
+- Diputuskan oleh: Zulfadli Rizal (pemilik), di percakapan 2026-11-14 ("tolong sesuaikan brandingnya jadi STARTERKIT")
+- Keputusan: nama bawaan `STARTERKIT` dan warna utama teal `#0f766e` (diatur lewat `npm run rebrand`). Logo bundar (`public/logo.png`) dan `public/favicon.ico` adalah gambar netral buatan sendiri (tiga lapisan putih di atas lingkaran teal) yang boleh diganti. Aset merek dan teks bawaan proyek sebelumnya dibuang; contoh data dan tes memakai kata netral.
+- Alasan: starterkit tidak boleh membawa merek atau istilah bisnis proyek lain.
+- Dampak untuk proyek ini: halaman error statis dan email memakai nama dan warna dari build, jadi `npm run error-pages` dijalankan ulang setelah merek diganti.
+- Tinjau ulang: saat proyek turunan membuat mereknya

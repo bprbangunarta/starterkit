@@ -1,4 +1,4 @@
-# Saran penyempurnaan boosts-guidelines (dari pengalaman proyek SIPEBRI)
+# Saran penyempurnaan boosts-guidelines (dari pengalaman satu proyek)
 
 Catatan ini disusun dari satu sesi kerja yang panjang (2026-11-11) memakai `boosts-guidelines-1.1.0` bersama gerbang Boost (`.claude/hooks/boost-gate.json`), subagent `boost-reviewer`, dan rule di `.ai/rules`. Isinya usulan untuk versi berikutnya, disertai bukti dari kejadian nyata. Bukan keputusan proyek; keputusan proyek ada di `docs/decisions.md`.
 
@@ -115,7 +115,7 @@ Bila perubahan UI membuat test lama tidak cocok, test tetap wajib lolos; itu sat
 
 ## D. Rule yang perlu ditambah
 
-1. **Batas urusan bisnis.** Agent tidak boleh mengarang aturan bisnis (peran, kolom data, alur persetujuan) dan menulisnya ke PRD atau keputusan. Kejadian nyata: agent menulis daftar peran kredit dan kolom debitur sebagai "rekomendasi", lalu ditarik kembali atas teguran pemilik. Untuk bisnis: tanya dan tunggu; untuk teknis: ikuti rekomendasi.
+1. **Batas urusan bisnis.** Agent tidak boleh mengarang aturan bisnis (peran, kolom data, alur persetujuan) dan menulisnya ke PRD atau keputusan. Kejadian nyata: agent menulis daftar peran dan kolom data bisnis sebagai "rekomendasi", lalu ditarik kembali atas teguran pemilik. Untuk bisnis: tanya dan tunggu; untuk teknis: ikuti rekomendasi.
 2. **Pengelolaan kata sandi.** Belum ada rule untuk: kata sandi bawaan dari `.env`, wajib ganti saat masuk pertama, kedaluwarsa N hari, riwayat N terakhir, dan reset oleh admin (sesi pengguna diputus). Semuanya ditambahkan di proyek ini (D-0031, D-0032) tanpa acuan.
 3. **Integritas relasi database.** Rule hanya berkata "gunakan foreign key". Tambahkan standar test otomatis yang gagal bila ada kolom `*_id` tanpa foreign key, dengan daftar pengecualian beralasan (kolom polimorfik, sesi, snapshot). Proyek ini punya contohnya di `tests/Feature/DatabaseIntegrityTest.php`.
 4. **Penghapusan data yang masih terhubung.** Penjaga harus ada di database (RESTRICT), bukan hanya di kode, dan pesan ramahnya di aplikasi. Kasus nyata: peranan yang dipegang pengguna; relasi bawaan paket (`model_has_roles`) bertipe CASCADE.

@@ -4,7 +4,7 @@ return [
 
     /*
     | Hosts that the storage settings may point to even though they sit on an internal network (a MinIO or an SFTP server inside the
-    | bank's network). Any other host must resolve to public addresses only. Separate hosts with commas.
+    | internal network). Any other host must resolve to public addresses only. Separate hosts with commas.
     */
     'allowed_hosts' => array_values(array_filter(array_map('trim', explode(',', strtolower((string) env('STORAGE_ALLOWED_HOSTS', '')))))),
 

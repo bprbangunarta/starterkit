@@ -8,6 +8,11 @@ import { ERROR_PAGES } from '@/lib/error-pages';
 const read = (path: string) => readFileSync(new URL(`../../../${path}`, import.meta.url), 'utf8');
 const pages = buildErrorPages({ brand: read('resources/js/lib/brand.ts'), theme: read('resources/css/app.css') });
 
+/** The light value of the primary colour is the first one in the theme (inside `@theme`), the dark one the first inside the dark block. */
+const theme = read('resources/css/app.css');
+const lightPrimary = /--color-primary: ([^;]+);/.exec(theme)?.[1] ?? '';
+const darkPrimary = /dark:start \*\/[\s\S]*?--color-primary: ([^;]+);/.exec(theme)?.[1] ?? '';
+
 describe('static error pages (resources/views/errors/*.blade.php)', () => {
     it('has a page for every status the app words', () => {
         expect(pages.map((page) => page.file)).toEqual(ERROR_PAGES.map((page) => `${page.status}.blade.php`));
@@ -27,15 +32,16 @@ describe('static error pages (resources/views/errors/*.blade.php)', () => {
             const names = [...root.matchAll(/--color-([a-z0-9-]+):/g)].map((match) => match[1]);
 
             expect(new Set(names).size, 'a token declared twice in the light block, so the later one wins').toBe(names.length);
-            expect(root).toContain('--color-primary:oklch(0.386 0.092 243.4)');
-            expect(html).toMatch(/@media\(prefers-color-scheme:dark\)\{:root\{color-scheme:dark;[^}]*--color-primary:oklch\(0\.72 0\.14 243\.4\)/);
+            expect(root).toContain(`--color-primary:${lightPrimary}`);
+            expect(html).toContain(`@media(prefers-color-scheme:dark){:root{color-scheme:dark;`);
+            expect(/@media\(prefers-color-scheme:dark\)\{:root\{[^}]*\}/.exec(html)?.[0]).toContain(`--color-primary:${darkPrimary}`);
         },
     );
 
     it('calls the 503 page maintenance: the title says so and the code is only a small note', () => {
         const html = pages.find((page) => page.file === '503.blade.php')?.html ?? '';
 
-        expect(html).toContain('<title>Sedang dalam pemeliharaan - SIPEBRI</title>');
+        expect(html).toContain('<title>Sedang dalam pemeliharaan - STARTERKIT</title>');
         expect(html).toContain('<h1>Sedang dalam pemeliharaan</h1>');
         expect(html).toContain('<p class="badge">Kode 503</p>');
         expect(html).not.toMatch(/service unavailable/i);

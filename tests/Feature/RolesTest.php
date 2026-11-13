@@ -116,13 +116,13 @@ test('the writing routes are rate limited', function () {
 test('the role list searches by name with % and _ taken literally', function () {
     adminOnRolesPage();
     Role::findOrCreate('Peninjau', 'web');
-    Role::findOrCreate('Analis_Kredit', 'web');
+    Role::findOrCreate('Analis_Data', 'web');
 
     $names = fn (string $term) => collect(test()->get(route('roles', ['search' => $term]))->viewData('page')['props']['roles']['data'])->pluck('name')->all();
 
     expect($names('penin'))->toBe(['Peninjau'])
         ->and($names('al_s'))->toBe([])
-        ->and($names('is_k'))->toBe(['Analis_Kredit'])
+        ->and($names('is_d'))->toBe(['Analis_Data'])
         ->and($names('%'))->toBe([]);
 });
 
