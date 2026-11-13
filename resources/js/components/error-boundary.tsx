@@ -1,0 +1,28 @@
+import { Component } from 'react';
+import type { ErrorInfo, ReactNode } from 'react';
+import { ErrorPage } from '@/components/error-page';
+import { reportError } from '@/lib/report';
+
+type Props = { children: ReactNode };
+type State = { failed: boolean };
+
+/** Catches render errors so one broken screen doesn't blank the app. */
+export class ErrorBoundary extends Component<Props, State> {
+    state: State = { failed: false };
+
+    static getDerivedStateFromError(): State {
+        return { failed: true };
+    }
+
+    componentDidCatch(error: Error, info: ErrorInfo) {
+        reportError(error, info.componentStack ?? 'render error');
+    }
+
+    render() {
+        if (this.state.failed) {
+            return <ErrorPage status={500} />;
+        }
+
+        return this.props.children;
+    }
+}

@@ -1,0 +1,40 @@
+import type { InertiaFormProps } from '@inertiajs/react';
+import { Field } from '@/components/ui/field';
+import { PasswordInput } from '@/components/ui/password-input';
+
+export type PasswordData = { current_password: string; password: string; password_confirmation: string };
+export const EMPTY_PASSWORD: PasswordData = { current_password: '', password: '', password_confirmation: '' };
+
+/** The current, new, and confirmation fields; the server rules (length, not the same as the current one) come back as messages under the matching field. */
+export function PasswordFields({ form, stacked = false }: { form: InertiaFormProps<PasswordData>; stacked?: boolean }) {
+    return (
+        <>
+            <Field label="Kata sandi saat ini" required error={form.errors.current_password}>
+                <PasswordInput
+                    autoComplete="current-password"
+                    maxLength={128}
+                    value={form.data.current_password}
+                    onChange={(e) => form.setData('current_password', e.target.value)}
+                />
+            </Field>
+            <div className={stacked ? 'grid gap-3' : 'grid gap-3 sm:grid-cols-2'}>
+                <Field label="Kata sandi baru" required error={form.errors.password} hint="Minimal 8 karakter, tidak boleh sama dengan 3 kata sandi terakhir">
+                    <PasswordInput
+                        autoComplete="new-password"
+                        maxLength={128}
+                        value={form.data.password}
+                        onChange={(e) => form.setData('password', e.target.value)}
+                    />
+                </Field>
+                <Field label="Konfirmasi kata sandi baru" required error={form.errors.password_confirmation}>
+                    <PasswordInput
+                        autoComplete="new-password"
+                        maxLength={128}
+                        value={form.data.password_confirmation}
+                        onChange={(e) => form.setData('password_confirmation', e.target.value)}
+                    />
+                </Field>
+            </div>
+        </>
+    );
+}

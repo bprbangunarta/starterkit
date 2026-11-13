@@ -1,0 +1,521 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/instrument-sans';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.tsx';
+
+@theme {
+    --font-sans:
+        'Instrument Sans Variable', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --color-primary: oklch(0.386 0.092 243.4);
+    --color-primary-hover: oklch(0.34 0.09 243.4);
+    --color-primary-soft: oklch(0.96 0.015 243.4);
+    --color-surface: #ffffff;
+    /* Text and icons on a solid primary, danger or success fill (buttons, badges, checked boxes). */
+    --color-on-primary: #ffffff;
+    --color-canvas: oklch(0.975 0.003 260);
+    --color-line: oklch(0.92 0.006 260);
+    --color-ink: oklch(0.24 0.02 265);
+    --color-muted: oklch(0.53 0.02 265);
+    --color-danger: oklch(0.55 0.2 27);
+
+    /*
+     * Status colours share one ladder so they read as a single family: soft (surface) L 0.97, line (border) L 0.88,
+     * base (icon, solid) and ink (text on soft) per hue. Hues: danger 27, warning 80, success 155, info 250.
+     */
+    --color-danger-soft: oklch(0.97 0.02 27);
+    --color-danger-line: oklch(0.88 0.06 27);
+    --color-danger-ink: oklch(0.45 0.16 27);
+    --color-success: oklch(0.55 0.14 155);
+    --color-success-soft: oklch(0.97 0.025 155);
+    --color-success-line: oklch(0.88 0.07 155);
+    --color-success-ink: oklch(0.42 0.1 155);
+    --color-warning: oklch(0.62 0.14 75);
+    --color-warning-soft: oklch(0.97 0.03 90);
+    --color-warning-line: oklch(0.88 0.08 85);
+    --color-warning-ink: oklch(0.45 0.1 70);
+    --color-info: oklch(0.55 0.15 250);
+    --color-info-soft: oklch(0.97 0.02 250);
+    --color-info-line: oklch(0.88 0.06 250);
+    --color-info-ink: oklch(0.42 0.12 250);
+
+    /**
+     * Chart series colours: five hues of about equal weight, each at least 3:1 against the surface (a test checks it).
+     * They carry no status meaning; the number beside each part says what it is.
+     */
+    --color-chart-1: oklch(0.386 0.092 243.4);
+    --color-chart-2: oklch(0.58 0.1 195);
+    --color-chart-3: oklch(0.62 0.14 75);
+    --color-chart-4: oklch(0.52 0.14 330);
+    --color-chart-5: oklch(0.55 0.03 265);
+
+    --text-2xs: 0.6875rem;
+    --text-xs: 0.75rem;
+    --text-sm: 0.8125rem;
+}
+
+/*
+ * Dark theme: the same token names with dark values, so no screen changes. It follows the system unless the page says otherwise:
+ * data-theme="dark" forces it, data-theme="light" forces the light one (lib/theme.ts sets it from the saved choice).
+ * The two blocks must stay identical (a test compares them); the static error pages copy the first one.
+ */
+:root {
+    color-scheme: light;
+}
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    /* dark:start */
+    --color-primary: oklch(0.72 0.14 243.4);
+    --color-primary-hover: oklch(0.78 0.13 243.4);
+    --color-primary-soft: oklch(0.28 0.06 243.4);
+    --color-surface: oklch(0.21 0.015 265);
+    --color-on-primary: oklch(0.18 0.02 265);
+    --color-canvas: oklch(0.17 0.012 265);
+    --color-line: oklch(0.32 0.015 265);
+    --color-ink: oklch(0.94 0.008 265);
+    --color-muted: oklch(0.72 0.02 265);
+    --color-danger: oklch(0.68 0.17 27);
+    --color-danger-soft: oklch(0.27 0.05 27);
+    --color-danger-line: oklch(0.4 0.09 27);
+    --color-danger-ink: oklch(0.84 0.1 27);
+    --color-success: oklch(0.72 0.15 155);
+    --color-success-soft: oklch(0.27 0.04 155);
+    --color-success-line: oklch(0.4 0.07 155);
+    --color-success-ink: oklch(0.85 0.12 155);
+    --color-warning: oklch(0.78 0.14 80);
+    --color-warning-soft: oklch(0.28 0.04 85);
+    --color-warning-line: oklch(0.42 0.08 80);
+    --color-warning-ink: oklch(0.87 0.12 85);
+    --color-info: oklch(0.72 0.13 250);
+    --color-info-soft: oklch(0.27 0.04 250);
+    --color-info-line: oklch(0.4 0.07 250);
+    --color-info-ink: oklch(0.85 0.09 250);
+    --color-chart-1: oklch(0.72 0.14 243.4);
+    --color-chart-2: oklch(0.74 0.1 195);
+    --color-chart-3: oklch(0.78 0.14 75);
+    --color-chart-4: oklch(0.72 0.14 330);
+    --color-chart-5: oklch(0.7 0.03 265);
+    /* dark:end */
+}
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+        color-scheme: dark;
+        --color-primary: oklch(0.72 0.14 243.4);
+        --color-primary-hover: oklch(0.78 0.13 243.4);
+        --color-primary-soft: oklch(0.28 0.06 243.4);
+        --color-surface: oklch(0.21 0.015 265);
+        --color-on-primary: oklch(0.18 0.02 265);
+        --color-canvas: oklch(0.17 0.012 265);
+        --color-line: oklch(0.32 0.015 265);
+        --color-ink: oklch(0.94 0.008 265);
+        --color-muted: oklch(0.72 0.02 265);
+        --color-danger: oklch(0.68 0.17 27);
+        --color-danger-soft: oklch(0.27 0.05 27);
+        --color-danger-line: oklch(0.4 0.09 27);
+        --color-danger-ink: oklch(0.84 0.1 27);
+        --color-success: oklch(0.72 0.15 155);
+        --color-success-soft: oklch(0.27 0.04 155);
+        --color-success-line: oklch(0.4 0.07 155);
+        --color-success-ink: oklch(0.85 0.12 155);
+        --color-warning: oklch(0.78 0.14 80);
+        --color-warning-soft: oklch(0.28 0.04 85);
+        --color-warning-line: oklch(0.42 0.08 80);
+        --color-warning-ink: oklch(0.87 0.12 85);
+        --color-info: oklch(0.72 0.13 250);
+        --color-info-soft: oklch(0.27 0.04 250);
+        --color-info-line: oklch(0.4 0.07 250);
+        --color-info-ink: oklch(0.85 0.09 250);
+        --color-chart-1: oklch(0.72 0.14 243.4);
+        --color-chart-2: oklch(0.74 0.1 195);
+        --color-chart-3: oklch(0.78 0.14 75);
+        --color-chart-4: oklch(0.72 0.14 330);
+        --color-chart-5: oklch(0.7 0.03 265);
+    }
+}
+
+/**
+ * Motion: soft and short. Things fade and rise a few pixels, overlays pop from their anchor, panels slide in, nothing bounces.
+ * One easing and three durations. Screens use the motion-* classes below instead of their own keyframes.
+ * With prefers-reduced-motion they are all off (spinners keep turning, since that is state, not decoration).
+ */
+:root {
+    --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-fast: 140ms;
+    --motion-base: 220ms;
+    --motion-slow: 320ms;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+}
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
+@keyframes rise-in {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
+@keyframes pop-in {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+}
+@keyframes pop-out {
+    to {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+}
+@keyframes slide-in-right {
+    from {
+        transform: translateX(100%);
+    }
+}
+@keyframes slide-out-right {
+    to {
+        transform: translateX(100%);
+    }
+}
+@keyframes slide-in-left {
+    from {
+        transform: translateX(-100%);
+    }
+}
+@keyframes slide-out-left {
+    to {
+        transform: translateX(-100%);
+    }
+}
+@keyframes accordion-down {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        height: var(--radix-accordion-content-height);
+    }
+}
+@keyframes accordion-up {
+    from {
+        height: var(--radix-accordion-content-height);
+    }
+    to {
+        height: 0;
+        opacity: 0;
+    }
+}
+@keyframes grow-x {
+    from {
+        transform: scaleX(0);
+    }
+}
+@keyframes grow-y {
+    from {
+        transform: scaleY(0);
+    }
+}
+
+/** Dim layer behind dialogs and panels. */
+.overlay-fade[data-state='open'] {
+    animation: fade-in var(--motion-base) var(--ease-soft);
+}
+.overlay-fade[data-state='closed'] {
+    animation: fade-out var(--motion-fast) ease-in forwards;
+}
+/** Dialog, popover, dropdown, tooltip: fade in and grow from 97% at the anchor point. */
+.motion-pop {
+    transform-origin: var(--radix-popper-transform-origin, center);
+}
+.motion-pop[data-state='open'],
+.motion-pop[data-state='delayed-open'],
+.motion-pop[data-state='instant-open'] {
+    animation: pop-in var(--motion-base) var(--ease-soft);
+}
+.motion-pop[data-state='closed'] {
+    animation: pop-out var(--motion-fast) ease-in forwards;
+}
+/** Side panels (Drawer, mobile menu). */
+.motion-slide-right[data-state='open'] {
+    animation: slide-in-right var(--motion-slow) var(--ease-soft);
+}
+.motion-slide-right[data-state='closed'] {
+    animation: slide-out-right var(--motion-base) ease-in forwards;
+}
+.motion-slide-left[data-state='open'] {
+    animation: slide-in-left var(--motion-slow) var(--ease-soft);
+}
+.motion-slide-left[data-state='closed'] {
+    animation: slide-out-left var(--motion-base) ease-in forwards;
+}
+.motion-accordion[data-state='open'] {
+    animation: accordion-down var(--motion-base) var(--ease-soft);
+}
+.motion-accordion[data-state='closed'] {
+    animation: accordion-up var(--motion-base) var(--ease-soft);
+}
+/** Screens, empty states and blocks that appear: fade in and rise a few pixels. */
+.motion-page {
+    animation: rise-in var(--motion-slow) var(--ease-soft) backwards;
+}
+/** List and grid items appear one after another: set --i (the index, 12 at most) on each. */
+.motion-item {
+    animation: rise-in var(--motion-slow) var(--ease-soft) backwards;
+    animation-delay: calc(var(--i, 0) * 30ms);
+}
+.motion-row {
+    animation: fade-in var(--motion-base) ease-out backwards;
+}
+/** Chart bars grow from their base. */
+.motion-grow-x {
+    transform-origin: left;
+    animation: grow-x 600ms var(--ease-soft) backwards;
+}
+.motion-grow-y {
+    transform-origin: bottom;
+    animation: grow-y 600ms var(--ease-soft) backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+    .overlay-fade,
+    .motion-pop,
+    .motion-slide-right,
+    .motion-slide-left,
+    .motion-accordion,
+    .motion-page,
+    .motion-item,
+    .motion-row,
+    .motion-grow-x,
+    .motion-grow-y {
+        animation: none !important;
+    }
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/**
+ * Illustrations (sign-in and error screens): slow loops. The picture floats a few pixels over its shadow, small marks twinkle, and each drawing
+ * has one accent (clock hand, gear, needle, blinking light). The static error pages copy the block between the markers
+ * (scripts/error-pages.ts), so keep it free of anything only the app defines.
+ */
+/* illustrations:start */
+@keyframes ill-float {
+    50% {
+        transform: translateY(-4px);
+    }
+}
+@keyframes ill-shadow {
+    50% {
+        transform: scaleX(0.92);
+        opacity: 0.45;
+    }
+}
+@keyframes ill-twinkle {
+    50% {
+        opacity: 0.25;
+    }
+}
+@keyframes ill-pulse {
+    50% {
+        transform: scale(1.1);
+    }
+}
+@keyframes ill-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes ill-swing {
+    50% {
+        transform: rotate(14deg);
+    }
+}
+@keyframes ill-sway {
+    50% {
+        transform: rotate(-7deg) translateY(-2px);
+    }
+}
+@keyframes ill-wander {
+    25% {
+        transform: translate(-5px, 3px);
+    }
+    75% {
+        transform: translate(4px, -3px);
+    }
+}
+@keyframes ill-blink {
+    45%,
+    55% {
+        opacity: 0.2;
+    }
+}
+@keyframes ill-flow {
+    to {
+        stroke-dashoffset: -16;
+    }
+}
+@keyframes ill-fill {
+    from {
+        transform: scaleX(0.4);
+    }
+}
+@keyframes ill-shake {
+    0%,
+    90%,
+    100% {
+        transform: rotate(0);
+    }
+    93% {
+        transform: rotate(-4deg);
+    }
+    96% {
+        transform: rotate(4deg);
+    }
+}
+.ill-float {
+    animation: ill-float 5s ease-in-out infinite;
+}
+.ill-shadow {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ill-shadow 5s ease-in-out infinite;
+}
+.ill-twinkle {
+    animation: ill-twinkle 3.6s ease-in-out infinite;
+}
+.ill-pulse {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: ill-pulse 2.8s ease-in-out infinite;
+}
+.ill-spin {
+    animation: ill-spin 16s linear infinite;
+}
+.ill-spin-fast {
+    animation: ill-spin 60s linear infinite;
+}
+.ill-swing {
+    animation: ill-swing 3.4s ease-in-out infinite;
+}
+.ill-sway {
+    animation: ill-sway 4.2s ease-in-out infinite;
+}
+.ill-wander {
+    animation: ill-wander 6s ease-in-out infinite;
+}
+.ill-blink {
+    animation: ill-blink 2.4s ease-in-out infinite;
+}
+.ill-flow {
+    stroke-dasharray: 4 4;
+    animation: ill-flow 1.2s linear infinite;
+}
+.ill-fill {
+    animation: ill-fill 4s ease-in-out infinite alternate;
+}
+.ill-shake {
+    animation: ill-shake 5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+    [class*='ill-'] {
+        animation: none !important;
+    }
+}
+/* illustrations:end */
+
+/** Toasts (sonner richColors) use the status ladder above, like Badge and Alert. */
+html [data-sonner-toaster][data-sonner-theme] {
+    --success-bg: var(--color-success-soft);
+    --success-border: var(--color-success-line);
+    --success-text: var(--color-success-ink);
+    --error-bg: var(--color-danger-soft);
+    --error-border: var(--color-danger-line);
+    --error-text: var(--color-danger-ink);
+    --warning-bg: var(--color-warning-soft);
+    --warning-border: var(--color-warning-line);
+    --warning-text: var(--color-warning-ink);
+    --info-bg: var(--color-info-soft);
+    --info-border: var(--color-info-line);
+    --info-text: var(--color-info-ink);
+}
+
+/** Compact calendar (react-day-picker): 28px cells, small caption and navigation. */
+.rdp-root.compact-calendar {
+    --rdp-accent-color: var(--color-primary);
+    --rdp-day-height: 28px;
+    --rdp-day-width: 28px;
+    --rdp-day_button-height: 26px;
+    --rdp-day_button-width: 26px;
+    --rdp-day_button-border-radius: 6px;
+    --rdp-selected-border: 0;
+    --rdp-accent-background-color: var(--color-primary-soft);
+    --rdp-nav_button-height: 1.5rem;
+    --rdp-nav_button-width: 1.5rem;
+    --rdp-nav-height: 1.75rem;
+    --rdp-weekday-padding: 0.25rem 0;
+    font-size: 0.75rem;
+}
+.compact-calendar .rdp-month_caption {
+    height: 1.75rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+.compact-calendar .rdp-caption_label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0 0.25rem;
+}
+.compact-calendar .rdp-dropdowns {
+    gap: 0.125rem;
+}
+.compact-calendar .rdp-weekday {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--color-muted);
+}
+.compact-calendar .rdp-day {
+    font-size: 0.75rem;
+}
+.compact-calendar .rdp-chevron {
+    width: 12px;
+    height: 12px;
+}
+.compact-calendar .rdp-selected:not(.rdp-range_middle) .rdp-day_button {
+    background: var(--color-primary);
+    color: var(--color-surface);
+}
+/** DateRangePicker: days between the start and the pointer are shaded before the end day is clicked. */
+.compact-calendar .rdp-preview:not(.rdp-selected),
+.compact-calendar .rdp-preview-end:not(.rdp-selected) {
+    background: var(--color-primary-soft);
+}
+.compact-calendar .rdp-preview-end:not(.rdp-selected) .rdp-day_button {
+    border: 1px solid var(--color-primary);
+}
+.compact-calendar .rdp-today:not(.rdp-selected) {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+@layer base {
+    html {
+        font-size: 15px;
+    }
+    body {
+        background: var(--color-canvas);
+        color: var(--color-ink);
+    }
+    button:not(:disabled),
+    [role='button']:not(:disabled) {
+        cursor: pointer;
+    }
+}

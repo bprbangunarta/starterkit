@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Terlalu banyak permintaan - SIPEBRI</title>
+<style>
+:root{--color-primary:oklch(0.386 0.092 243.4);--color-primary-hover:oklch(0.34 0.09 243.4);--color-primary-soft:oklch(0.96 0.015 243.4);--color-surface:#ffffff;--color-on-primary:#ffffff;--color-canvas:oklch(0.975 0.003 260);--color-line:oklch(0.92 0.006 260);--color-ink:oklch(0.24 0.02 265);--color-muted:oklch(0.53 0.02 265);--color-danger:oklch(0.55 0.2 27);--color-danger-soft:oklch(0.97 0.02 27);--color-danger-line:oklch(0.88 0.06 27);--color-danger-ink:oklch(0.45 0.16 27);--color-success:oklch(0.55 0.14 155);--color-success-soft:oklch(0.97 0.025 155);--color-success-line:oklch(0.88 0.07 155);--color-success-ink:oklch(0.42 0.1 155);--color-warning:oklch(0.62 0.14 75);--color-warning-soft:oklch(0.97 0.03 90);--color-warning-line:oklch(0.88 0.08 85);--color-warning-ink:oklch(0.45 0.1 70);--color-info:oklch(0.55 0.15 250);--color-info-soft:oklch(0.97 0.02 250);--color-info-line:oklch(0.88 0.06 250);--color-info-ink:oklch(0.42 0.12 250);--color-chart-1:oklch(0.386 0.092 243.4);--color-chart-2:oklch(0.58 0.1 195);--color-chart-3:oklch(0.62 0.14 75);--color-chart-4:oklch(0.52 0.14 330);--color-chart-5:oklch(0.55 0.03 265)}
+@media(prefers-color-scheme:dark){:root{color-scheme:dark;--color-primary:oklch(0.72 0.14 243.4);--color-primary-hover:oklch(0.78 0.13 243.4);--color-primary-soft:oklch(0.28 0.06 243.4);--color-surface:oklch(0.21 0.015 265);--color-on-primary:oklch(0.18 0.02 265);--color-canvas:oklch(0.17 0.012 265);--color-line:oklch(0.32 0.015 265);--color-ink:oklch(0.94 0.008 265);--color-muted:oklch(0.72 0.02 265);--color-danger:oklch(0.68 0.17 27);--color-danger-soft:oklch(0.27 0.05 27);--color-danger-line:oklch(0.4 0.09 27);--color-danger-ink:oklch(0.84 0.1 27);--color-success:oklch(0.72 0.15 155);--color-success-soft:oklch(0.27 0.04 155);--color-success-line:oklch(0.4 0.07 155);--color-success-ink:oklch(0.85 0.12 155);--color-warning:oklch(0.78 0.14 80);--color-warning-soft:oklch(0.28 0.04 85);--color-warning-line:oklch(0.42 0.08 80);--color-warning-ink:oklch(0.87 0.12 85);--color-info:oklch(0.72 0.13 250);--color-info-soft:oklch(0.27 0.04 250);--color-info-line:oklch(0.4 0.07 250);--color-info-ink:oklch(0.85 0.09 250);--color-chart-1:oklch(0.72 0.14 243.4);--color-chart-2:oklch(0.74 0.1 195);--color-chart-3:oklch(0.78 0.14 75);--color-chart-4:oklch(0.72 0.14 330);--color-chart-5:oklch(0.7 0.03 265)}}
+*{box-sizing:border-box}
+html{font-size:15px}
+body{margin:0;background:var(--color-canvas);color:var(--color-ink);font-family:'Instrument Sans Variable','Instrument Sans',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.page{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:1.5rem 1rem 2rem}
+.brand{display:flex;align-items:center;justify-content:center;gap:.5rem}
+.mark{width:2rem;height:2rem}
+.name{font-size:1rem;font-weight:600}
+main{flex:1;width:100%;max-width:28rem;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem 0;text-align:center}
+svg{width:20rem;max-width:100%;height:auto}
+@media(min-width:640px){svg{width:24rem}}
+.badge{margin:.5rem 0 0;padding:.125rem .625rem;border-radius:999px;background:var(--color-primary-soft);color:var(--color-primary);font-size:.6875rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+h1{margin:.75rem 0 0;font-size:1.375rem;font-weight:600}
+@media(min-width:640px){h1{font-size:1.625rem}}
+p.d{margin:.5rem 0 0;max-width:24rem;font-size:.8125rem;line-height:1.6;color:var(--color-muted)}
+a.b{display:inline-flex;height:2rem;align-items:center;justify-content:center;margin-top:1.5rem;padding:0 1rem;border-radius:.375rem;background:var(--color-primary);color:var(--color-on-primary);font-size:.8125rem;font-weight:500;text-decoration:none}
+a.b:hover{background:var(--color-primary-hover)}
+@media(max-width:639px){a.b{width:100%}}
+@keyframes ill-float { 50% { transform: translateY(-4px); } } @keyframes ill-shadow { 50% { transform: scaleX(0.92); opacity: 0.45; } } @keyframes ill-twinkle { 50% { opacity: 0.25; } } @keyframes ill-pulse { 50% { transform: scale(1.1); } } @keyframes ill-spin { to { transform: rotate(360deg); } } @keyframes ill-swing { 50% { transform: rotate(14deg); } } @keyframes ill-sway { 50% { transform: rotate(-7deg) translateY(-2px); } } @keyframes ill-wander { 25% { transform: translate(-5px, 3px); } 75% { transform: translate(4px, -3px); } } @keyframes ill-blink { 45%, 55% { opacity: 0.2; } } @keyframes ill-flow { to { stroke-dashoffset: -16; } } @keyframes ill-fill { from { transform: scaleX(0.4); } } @keyframes ill-shake { 0%, 90%, 100% { transform: rotate(0); } 93% { transform: rotate(-4deg); } 96% { transform: rotate(4deg); } } .ill-float { animation: ill-float 5s ease-in-out infinite; } .ill-shadow { transform-box: fill-box; transform-origin: center; animation: ill-shadow 5s ease-in-out infinite; } .ill-twinkle { animation: ill-twinkle 3.6s ease-in-out infinite; } .ill-pulse { transform-box: fill-box; transform-origin: center; animation: ill-pulse 2.8s ease-in-out infinite; } .ill-spin { animation: ill-spin 16s linear infinite; } .ill-spin-fast { animation: ill-spin 60s linear infinite; } .ill-swing { animation: ill-swing 3.4s ease-in-out infinite; } .ill-sway { animation: ill-sway 4.2s ease-in-out infinite; } .ill-wander { animation: ill-wander 6s ease-in-out infinite; } .ill-blink { animation: ill-blink 2.4s ease-in-out infinite; } .ill-flow { stroke-dasharray: 4 4; animation: ill-flow 1.2s linear infinite; } .ill-fill { animation: ill-fill 4s ease-in-out infinite alternate; } .ill-shake { animation: ill-shake 5s ease-in-out infinite; } @media (prefers-reduced-motion: reduce) { [class*='ill-'] { animation: none !important; } }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="brand"><img class="mark" src="/logo.png" alt="" width="32" height="32"><span class="name">SIPEBRI</span></div>
+<main>
+<svg viewBox="0 0 240 180" role="presentation" aria-hidden="true" focusable="false"><circle cx="120" cy="92" r="72" fill="var(--color-primary-soft)"></circle><ellipse class="ill-shadow" cx="120" cy="164" rx="64" ry="7" fill="var(--color-line)" opacity="0.7"></ellipse><circle class="ill-twinkle" cx="34" cy="52" r="4" fill="var(--color-line)"></circle><circle class="ill-twinkle" style="animation-delay:-1.2s" cx="210" cy="36" r="3" fill="var(--color-line)"></circle><path class="ill-twinkle" style="animation-delay:-2.4s" d="M206 120h10M211 115v10" stroke="var(--color-line)" stroke-width="3" stroke-linecap="round"></path><path class="ill-twinkle" style="animation-delay:-0.6s" d="M28 112h8M32 108v8" stroke="var(--color-line)" stroke-width="3" stroke-linecap="round"></path><g class="ill-float"><path d="M54 132a66 66 0 0 1 132 0" fill="none" stroke="var(--color-line)" stroke-width="16" stroke-linecap="round"></path><path d="M54 132a66 66 0 0 1 17-44" fill="none" stroke="var(--color-success)" stroke-width="16" stroke-linecap="round"></path><path d="M82 76a66 66 0 0 1 76 0" fill="none" stroke="var(--color-warning)" stroke-width="16"></path><path d="M169 88a66 66 0 0 1 17 44" fill="none" stroke="var(--color-danger)" stroke-width="16" stroke-linecap="round"></path><path class="ill-swing" style="transform-origin:120px 132px" d="M120 132l40-44" stroke="var(--color-ink)" stroke-width="6" stroke-linecap="round"></path><circle cx="120" cy="132" r="11" fill="var(--color-ink)"></circle><circle cx="120" cy="132" r="4.5" fill="var(--color-surface)"></circle><g class="ill-pulse"><circle cx="178" cy="52" r="13" fill="var(--color-danger)"></circle><rect x="176" y="44" width="4" height="10" rx="2" fill="var(--color-surface)"></rect><circle cx="178" cy="59" r="2.3" fill="var(--color-surface)"></circle></g></g></svg>
+<p class="badge">Kode 429</p>
+<h1>Terlalu banyak permintaan</h1>
+<p class="d">Anda mengirim permintaan terlalu cepat. Tunggu sebentar lalu coba lagi.</p>
+<a class="b" href="">Coba lagi</a>
+</main>
+</div>
+</body>
+</html>

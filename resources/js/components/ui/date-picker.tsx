@@ -1,0 +1,82 @@
+import { format, parseISO } from 'date-fns';
+import { id as idLocale } from 'date-fns/locale';
+import { CalendarDays } from 'lucide-react';
+import { useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/style.css';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { controlClass } from '@/components/ui/input';
+import { formatDate } from '@/lib/format';
+import { cn } from '@/lib/utils';
+
+type Props = {
+    value: string;
+    onChange: (value: string) => void;
+    min?: Date;
+    max?: Date;
+    defaultMonth?: Date;
+    invalid?: boolean;
+    id?: string;
+    placeholder?: string;
+    /** For controls without a visible label. */
+    'aria-label'?: string;
+};
+
+/** Month to open on when nothing is chosen: this month, or the closest month inside min/max. */
+function openingMonth(min: Date, max: Date): Date {
+    const today = new Date();
+
+    return today < min ? min : today > max ? max : today;
+}
+
+/** The value is an ISO date (YYYY-MM-DD). */
+export function DatePicker({
+    value,
+    onChange,
+    min = new Date(1940, 0, 1),
+    max = new Date(),
+    defaultMonth,
+    invalid,
+    id,
+    placeholder = 'Pilih tanggal',
+    'aria-label': ariaLabel,
+}: Props) {
+    const [open, setOpen] = useState(false);
+    const selected = value ? parseISO(value) : undefined;
+
+    return (
+        <Popover open={open} onOpenChange={setOpen}>
+            <PopoverTrigger asChild>
+                <button
+                    id={id}
+                    type="button"
+                    data-invalid={invalid || undefined}
+                    aria-label={ariaLabel}
+                    className={cn(controlClass, 'flex items-center justify-between text-left data-[invalid]:border-danger data-[invalid]:ring-danger/20')}
+                >
+                    <span className={cn(!selected && 'text-muted/70')}>{selected ? formatDate(selected) : placeholder}</span>
+                    <CalendarDays className="size-3.5 text-muted" />
+                </button>
+            </PopoverTrigger>
+            <PopoverContent aria-label={ariaLabel ?? placeholder} className="w-fit p-1.5">
+                <DayPicker
+                    mode="single"
+                    locale={idLocale}
+                    captionLayout="dropdown"
+                    startMonth={min}
+                    endMonth={max}
+                    defaultMonth={selected ?? defaultMonth ?? openingMonth(min, max)}
+                    selected={selected}
+                    disabled={{ before: min, after: max }}
+                    onSelect={(date) => {
+                        if (date) {
+                            onChange(format(date, 'yyyy-MM-dd'));
+                            setOpen(false);
+                        }
+                    }}
+                    className="compact-calendar"
+                />
+            </PopoverContent>
+        </Popover>
+    );
+}
