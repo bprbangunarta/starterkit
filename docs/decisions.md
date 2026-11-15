@@ -1,6 +1,6 @@
 # Catatan keputusan
 
-Keputusan D-0001 sampai D-0010 berasal dari standar boosts-guidelines dan berlaku di proyek ini sejak diadopsi. Jika proyek ini perlu menyimpang, tambahkan entri baru yang menggantikannya.
+Keputusan D-0001 sampai D-0010 berasal dari standar boosts-guidelines dan berlaku di proyek ini sejak diadopsi. Keputusan D-0011 sampai D-0048 berasal dari pembuatan starterkit dan berlaku di proyek turunan sampai digantikan. Jika proyek ini perlu menyimpang, tambahkan entri baru yang menggantikannya.
 
 Tempat mencatat keputusan, risiko yang sengaja diterima, pengecualian aturan, dan utang teknis. Setiap entri menyebut apa yang diputuskan, alasannya, siapa yang memutuskan, kapan, dan kapan ditinjau ulang. Entri tidak dihapus. Jika keputusan berubah, tambahkan entri baru yang merujuk entri lama, lalu ubah status entri lama menjadi "digantikan".
 
@@ -123,7 +123,7 @@ Format entri:
 ## D-0011: Pest 4 dan PHPUnit 12 selama proyek di Laravel 12
 
 - Tanggal: 2026-11-11
-- Status: berlaku
+- Status: digantikan oleh D-0048
 - Diputuskan oleh: Zulfadli Rizal (pemilik), menyetujui semua rekomendasi agent di percakapan 2026-11-11
 - Keputusan: Memakai Pest 4.7 dan PHPUnit 12 (`composer.json` memakai `phpunit/phpunit ^12`). Pest 5 tidak bisa dipasang di Laravel 12: semua rilis Pest 5 (v5.0.0 sampai v5.3.5) mensyaratkan `symfony/process ^8.1` dan PHP ^8.4, sedangkan Laravel 12 mensyaratkan `symfony/process ^7.2`. Itu diperiksa lewat metadata Composer dan `composer require --dry-run`. Pest 3.8 dipakai lebih dulu, lalu dinaikkan ke 4.7 karena kompatibel dan lebih baru.
 - Alasan: Pest 4 adalah rilis terbaru yang kompatibel dengan Laravel 12. Notice deprecated dari plugin arch di PHP 8.5 (`ReflectionProperty::setAccessible()`) yang muncul di Pest 3.8 hilang di Pest 4.
@@ -193,7 +193,7 @@ Format entri:
 ## D-0018: Stop gate tidak membaca vonis reviewer di lingkungan ini
 
 - Tanggal: 2026-11-11
-- Status: berlaku
+- Status: digantikan oleh D-0047
 - Diputuskan oleh: Zulfadli Rizal (pemilik), menyetujui semua rekomendasi agent di percakapan 2026-11-11
 - Keputusan: Hook Stop gate membaca `VERDICT: PASS|FAIL` dari isi `tool_result` pemanggilan tool Agent (`.claude/hooks/lib.php` dan `boost-quality.php`). Di Claude Code yang dipakai di sini, `boost-reviewer` selalu berjalan async walaupun diminta di latar depan, sehingga `tool_result` hanya berisi pesan "launched" dan vonisnya tidak terbaca. Laporan reviewer yang sebenarnya datang sebagai pesan terpisah. Cara kerja yang dipakai: jalankan reviewer sekali, tunggu laporannya selesai, baca vonis dan temuannya, perbaiki temuan blokir, lalu laporkan hasilnya. Gate melepas sendiri setelah tiga kali menahan.
 - Alasan: Review adalah bagian dari standar, jadi tetap dijalankan dan dibaca walaupun gate tidak mengenali hasilnya. Penyebab pastinya (versi Claude Code) belum dipastikan.
@@ -480,3 +480,23 @@ Format entri:
 - Alasan: starterkit tidak boleh membawa merek atau istilah bisnis proyek lain.
 - Dampak untuk proyek ini: halaman error statis dan email memakai nama dan warna dari build, jadi `npm run error-pages` dijalankan ulang setelah merek diganti.
 - Tinjau ulang: saat proyek turunan membuat mereknya
+
+## D-0047: Stop gate membaca laporan reviewer yang datang belakangan
+
+- Tanggal: 2026-11-15
+- Status: berlaku
+- Diputuskan oleh: Zulfadli Rizal (pemilik), di percakapan 2026-11-15 ("commit perubahan di starterkit, bereskanlah jangan ada yang menggantung", setelah agent menyebut bahwa D-0018 perlu diganti entri ini)
+- Keputusan: menggantikan D-0018. Hook proyek ini identik dengan boosts-guidelines 1.2.0 dan seterusnya. Stop gate dan gate commit mencocokkan laporan `boost-reviewer` yang datang belakangan lewat `agentId`, lalu membaca baris `VERDICT:` di dalamnya (`.claude/hooks/transcript.php` dan `review.php`). Selama laporan belum masuk, agent diminta menunggu, bukan menjalankan reviewer lagi. Review berjalan sesuai permintaan lewat `/review-fitur` (`review.mode: on_request`), dan `quality.max_blocks` bernilai 1.
+- Alasan: keadaan yang dicatat D-0018 (vonis tidak terbaca, giliran ditahan hingga tiga kali) berasal dari hook versi 1.1.0 dan sudah diperbaiki di 1.2.0. Diverifikasi dengan membandingkan berkas hook proyek ini dengan template 1.2.0 (identik) dan dengan 33 skenario simulasi hook di repositori boosts-guidelines. Belum diamati di sesi nyata proyek ini.
+- Dampak untuk proyek ini: tidak ada perubahan kode. D-0018 kini `digantikan oleh D-0047`.
+- Tinjau ulang: saat Claude Code mengubah format pesan laporan subagent, atau saat boosts-guidelines diperbarui
+
+## D-0048: Pest 4 dan PHPUnit 12 di Laravel 13
+
+- Tanggal: 2026-11-15
+- Status: berlaku
+- Diputuskan oleh: Zulfadli Rizal (pemilik), di percakapan 2026-11-15 ("commit perubahan di starterkit, bereskanlah jangan ada yang menggantung"). Entri ini hanya mencatat keadaan yang sudah berlaku dan tidak mengubah apa pun.
+- Keputusan: menggantikan D-0011, yang tinjau ulangnya jatuh tempo saat proyek naik ke Laravel 13. Proyek tetap memakai Pest 4.7 dan PHPUnit 12 (`composer.json`: `pestphp/pest ^4`, `phpunit/phpunit ^12.5.12`).
+- Alasan: Pest 5.3.6 mensyaratkan `phpunit/phpunit ^13.4.7` (diperiksa 2026-11-15 dengan `composer why-not pestphp/pest ^5`), sedangkan proyek memakai PHPUnit 12. Kenaikan mayor dependensi butuh persetujuan terpisah, dan seluruh 414 tes PHP lulus di Pest 4.
+- Dampak untuk proyek ini: tidak ada perubahan kode.
+- Tinjau ulang: saat proyek turunan membutuhkan Pest 5 atau PHPUnit 13
