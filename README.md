@@ -53,7 +53,7 @@ composer dev
 Isi data awal untuk lokal dengan `php artisan db:seed`: role dasar, satu kantor contoh, dan dua akun demo (`superadmin` dan `guest`, kata sandi bawaan `UserFactory`). Akun demo hanya dibuat bila `SEED_DEMO_ACCOUNTS=true` (menyala di `.env.example`) dan hanya untuk lokal. Role dasar bisa dibuat ulang kapan saja dengan `php artisan roles:sync-base`, aman diulang.
 
 ### Menjadikannya proyek sendiri
-1. Ganti merek: `npm run rebrand -- --name "Nama Proyek" --color "#rrggbb"` (nama, warna utama terang dan gelap, warna email, halaman error, dan `package.json`). Samakan `APP_NAME` di `.env`.
+1. Ganti merek: `npm run rebrand -- --name "Nama Proyek" --color "#rrggbb"` (nama, warna utama terang dan gelap, warna email, halaman error, `package.json`, dan `package-lock.json`). Samakan `APP_NAME` di `.env`.
 2. Ganti `public/logo.png` dan `public/favicon.ico` (atau unggah dari menu Pengaturan), lalu jalankan `npm run error-pages`.
 3. Ubah nama paket di `composer.json`, tulis ulang `memory/PRD.md` untuk produknya, dan kosongkan bagian `[Unreleased]` di `CHANGELOG.md` (isinya mencatat pembuatan starterkit). Isi `docs/` sudah siap dipakai: `docs/decisions.md` dibawa apa adanya (D-0001 sampai D-0048 berlaku sampai digantikan), sedangkan `docs/instructions.md` dan `docs/review-status.md` mulai dari catatan baru.
 4. Isi `DEFAULT_USER_PASSWORD` di `.env` agar akun baru bisa dibuat.

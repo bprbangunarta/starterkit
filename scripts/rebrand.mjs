@@ -53,7 +53,12 @@ if (name) {
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-|-$/g, '');
     write('package.json', read('package.json').replace(/"name": ".*"/, `"name": "${slug}"`));
-    done(`nama aplikasi "${name}" di resources/js/lib/brand.ts, resources/js/app.tsx, .env.example, package.json (samakan APP_NAME di .env)`);
+    const lock = JSON.parse(read('package-lock.json'));
+    const { name: _previousName, ...rootPackage } = lock.packages[''];
+    lock.name = slug;
+    lock.packages[''] = { name: slug, ...rootPackage };
+    write('package-lock.json', `${JSON.stringify(lock, null, 2)}\n`);
+    done(`nama aplikasi "${name}" di resources/js/lib/brand.ts, resources/js/app.tsx, .env.example, package.json, package-lock.json (samakan APP_NAME di .env)`);
 }
 
 if (color) {
