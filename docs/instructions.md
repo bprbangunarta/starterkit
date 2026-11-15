@@ -336,3 +336,10 @@ Setiap instruksi dicatat di sini sebelum dikerjakan, lalu dampaknya ditinjau dan
 - Status: selesai
 - Instruksi: "sesuaikan brandingnya jadi STARTERKIT, cek env dan example-nya agar standar dan mudah disesuaikan, sesuaikan readme, dan jangan bawa-bawa proyek sebelumnya lagi; pastikan proyek siap digunakan dengan standar yang sama."
 - Hasil: merek dan warna lewat `npm run rebrand` (D-0046); logo dan favicon netral baru, aset lama dibuang; semua nama dan istilah bisnis proyek sebelumnya dihapus dari kode, tes, dokumen, README, dan PRD; `.env.example` ditata per bagian dengan komentar dan memuat variabel yang dibaca config; `README.md` ditulis ulang untuk starterkit.
+
+## I-0043: Terapkan perbaikan instruksi agent dari SIPEBRI ke starterkit
+
+- Tanggal: 2026-11-15
+- Status: selesai
+- Instruksi: "sebelum lanjut saya mau memperbaiku dulu proyek starterkit karena proyek sipebri ini hasil clone dari sana ... saya ingin menerapkannya juga pada proyek starternya"
+- Hasil: dibandingkan kedua proyek sejak fork (2026-11-14). Hanya dua perubahan instruksi agent yang umum, dan keduanya dibawa: panduan `.ai/guidelines/feature-workflow.md` (alur kerja fitur baru; ikut tertulis di `CLAUDE.md` dan `AGENTS.md`) dan aturan "dialog sampai 6 isian, halaman untuk lebih dari itu" di `.ai/rules/frontend-react.md` (tanpa rujukan ke I-0015 milik SIPEBRI). Tidak dibawa karena khusus SIPEBRI: warna biru logo, database MySQL pada aturan e2e, PRD, dan catatan instruksi. Hook dan agent di `.claude` sudah identik di kedua proyek.

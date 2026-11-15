@@ -284,3 +284,6 @@ npm run build      # membangun aset lalu memeriksa anggaran ukuran bundel (scrip
 ```
 
 Coba layar yang diubah di peramban (ponsel dan desktop), termasuk keadaan kosong, galat, dan memuat. Perubahan route yang terasa bagi pengguna dicatat di `CHANGELOG.md`. Pesan commit berbahasa Inggris, satu perubahan logis per commit.
+
+## Dialog sampai 6 isian, halaman untuk lebih dari itu
+Form tambah atau ubah dengan paling banyak 6 isian (termasuk pilihan, centang, dan isian alasan) memakai dialog. Lebih dari 6 isian dibuat halaman sendiri (`/<fitur>/create` dan `/<fitur>/{ulid}/edit`) dengan kartu per seksi dan footer Batal dan Simpan di kartu terakhir. Hapus dan konfirmasi singkat tetap dialog. Ditetapkan pemilik 2026-11-14.
