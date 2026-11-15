@@ -58,7 +58,9 @@ if (name) {
     lock.name = slug;
     lock.packages[''] = { name: slug, ...rootPackage };
     write('package-lock.json', `${JSON.stringify(lock, null, 2)}\n`);
-    done(`nama aplikasi "${name}" di resources/js/lib/brand.ts, resources/js/app.tsx, .env.example, package.json, package-lock.json (samakan APP_NAME di .env)`);
+    done(
+        `nama aplikasi "${name}" di resources/js/lib/brand.ts, resources/js/app.tsx, .env.example, package.json, package-lock.json (samakan APP_NAME di .env)`,
+    );
 }
 
 if (color) {
